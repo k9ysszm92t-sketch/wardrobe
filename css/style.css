@@ -1,0 +1,549 @@
+/* ─── Reset & base ────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:        #f8f7f4;
+  --surface:   #ffffff;
+  --border:    rgba(0,0,0,0.10);
+  --border-md: rgba(0,0,0,0.18);
+  --text:      #1a1a1a;
+  --muted:     #6b6b6b;
+  --hint:      #9e9e9e;
+  --accent:    #534AB7;
+  --accent-bg: #EEEDFE;
+  --accent-border: #AFA9EC;
+  --green:     #1D9E75;
+  --green-bg:  #E1F5EE;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --shadow:    0 1px 3px rgba(0,0,0,0.07);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:        #1a1918;
+    --surface:   #242322;
+    --border:    rgba(255,255,255,0.10);
+    --border-md: rgba(255,255,255,0.18);
+    --text:      #e8e6e0;
+    --muted:     #9e9c96;
+    --hint:      #6b6966;
+    --accent:    #7F77DD;
+    --accent-bg: #26215C;
+    --accent-border: #534AB7;
+    --green:     #5DCAA5;
+    --green-bg:  #04342C;
+  }
+}
+
+html, body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ─── Layout ──────────────────────────────────────────────────────────────── */
+#app { display: flex; flex-direction: column; min-height: 100vh; }
+
+header {
+  background: var(--surface);
+  border-bottom: 0.5px solid var(--border);
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  height: 52px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+header .logo {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.3px;
+  text-decoration: none;
+}
+
+nav { display: flex; gap: 0.25rem; }
+
+nav button {
+  background: none;
+  border: none;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  color: var(--muted);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+nav button:hover { background: var(--bg); color: var(--text); }
+nav button.active { background: var(--accent-bg); color: var(--accent); font-weight: 500; }
+
+main { flex: 1; padding: 1.5rem; max-width: 1100px; margin: 0 auto; width: 100%; }
+
+.view { display: none; }
+.view.active { display: block; }
+
+/* ─── Cards & surfaces ────────────────────────────────────────────────────── */
+.card {
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+}
+
+/* ─── Buttons ─────────────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+  border: 0.5px solid var(--border-md);
+  background: var(--surface);
+  color: var(--text);
+}
+
+.btn:hover { background: var(--bg); }
+.btn:active { opacity: 0.75; }
+
+.btn-primary {
+  background: var(--accent-bg);
+  border-color: var(--accent-border);
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.btn-primary:hover { opacity: 0.85; background: var(--accent-bg); }
+
+.btn-sm { padding: 4px 10px; font-size: 12px; }
+
+/* ─── Form elements ───────────────────────────────────────────────────────── */
+input[type=text], input[type=search], select, textarea {
+  background: var(--surface);
+  border: 0.5px solid var(--border-md);
+  border-radius: var(--radius-sm);
+  padding: 7px 11px;
+  font-size: 14px;
+  color: var(--text);
+  outline: none;
+  width: 100%;
+  font-family: inherit;
+  transition: border-color 0.15s;
+}
+
+input[type=text]:focus,
+input[type=search]:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--accent);
+}
+
+select { cursor: pointer; }
+
+/* ─── Colour swatch ───────────────────────────────────────────────────────── */
+.swatch {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  border: 0.5px solid rgba(0,0,0,0.15);
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+.swatch-lg {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+}
+
+/* ─── Badges ──────────────────────────────────────────────────────────────── */
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 99px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.badge-accent { background: var(--accent-bg); color: var(--accent); }
+.badge-green  { background: var(--green-bg);  color: var(--green);  }
+.badge-muted  { background: var(--bg); color: var(--muted); border: 0.5px solid var(--border); }
+
+/* ─── Loading / empty states ─────────────────────────────────────────────── */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 3rem;
+  color: var(--hint);
+  font-size: 14px;
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.empty {
+  text-align: center;
+  padding: 3rem;
+  color: var(--hint);
+  font-size: 14px;
+}
+
+/* ─── Calendar ────────────────────────────────────────────────────────────── */
+.cal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.cal-week-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 1.25rem 0 0.5rem;
+}
+
+.cal-week-label:first-of-type { margin-top: 0; }
+
+.dow-row {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 5px;
+  margin-bottom: 5px;
+}
+
+.dow-cell {
+  font-size: 11px;
+  color: var(--hint);
+  text-align: center;
+  padding-bottom: 3px;
+}
+
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 5px;
+  margin-bottom: 5px;
+}
+
+.day-card {
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 7px;
+  min-height: 88px;
+  cursor: pointer;
+  transition: border-color 0.15s;
+  position: relative;
+}
+
+.day-card:hover { border-color: var(--border-md); }
+
+.day-card.is-today {
+  border-color: var(--accent);
+  border-width: 1.5px;
+}
+
+.day-card.is-past {
+  background: var(--bg);
+}
+
+.day-card.is-planned {
+  background: var(--surface);
+}
+
+.day-card.is-empty {
+  background: transparent;
+  border-color: transparent;
+  cursor: default;
+  pointer-events: none;
+}
+
+.day-num {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 5px;
+}
+
+.is-today .day-num { color: var(--accent); }
+.is-past .day-num  { color: var(--muted);  }
+
+.day-swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  margin-bottom: 4px;
+}
+
+.day-swatch {
+  width: 13px;
+  height: 13px;
+  border-radius: 3px;
+  border: 0.5px solid rgba(0,0,0,0.12);
+  flex-shrink: 0;
+}
+
+.day-swatch.placeholder {
+  border-style: dashed;
+  background: transparent;
+  border-color: var(--border-md);
+}
+
+.day-meta {
+  font-size: 10px;
+  color: var(--hint);
+  line-height: 1.4;
+}
+
+.day-badge {
+  font-size: 10px;
+  display: inline-block;
+  margin-top: 3px;
+}
+
+.day-badge.worn    { color: var(--muted); }
+.day-badge.planned { color: var(--accent); }
+.day-badge.office  { color: var(--green); }
+
+.day-detail {
+  margin-top: 1rem;
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.25rem;
+}
+
+.day-detail-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.day-detail-header h3 {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.outfit-item-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 0;
+  border-bottom: 0.5px solid var(--border);
+}
+
+.outfit-item-row:last-child { border-bottom: none; }
+
+.outfit-item-info { flex: 1; min-width: 0; }
+.outfit-item-name { font-size: 13px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.outfit-item-meta { font-size: 11px; color: var(--hint); }
+
+/* ─── Plan prompt editor ──────────────────────────────────────────────────── */
+.plan-editor {
+  margin-top: 1rem;
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.25rem;
+}
+
+.plan-editor textarea {
+  height: 90px;
+  resize: vertical;
+  margin-bottom: 0.75rem;
+}
+
+/* ─── Wardrobe manager ────────────────────────────────────────────────────── */
+.filter-bar {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+  align-items: center;
+}
+
+.filter-bar input[type=search] { flex: 1; min-width: 160px; }
+.filter-bar select { min-width: 120px; width: auto; }
+
+.item-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.item-card {
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.item-card:hover { border-color: var(--border-md); }
+
+.item-card-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.item-card-swatch {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 0.5px solid rgba(0,0,0,0.12);
+  flex-shrink: 0;
+}
+
+.item-card-title { font-size: 13px; font-weight: 500; line-height: 1.3; }
+.item-card-brand { font-size: 11px; color: var(--muted); }
+.item-card-colour { font-size: 11px; color: var(--hint); }
+
+.item-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+/* ─── Chat ────────────────────────────────────────────────────────────────── */
+.chat-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 1rem;
+  align-items: start;
+}
+
+@media (max-width: 720px) {
+  .chat-layout { grid-template-columns: 1fr; }
+}
+
+.chat-window {
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  height: 520px;
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.chat-msg {
+  max-width: 85%;
+  padding: 9px 13px;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.chat-msg.user {
+  background: var(--accent-bg);
+  color: var(--text);
+  align-self: flex-end;
+  border-bottom-right-radius: 3px;
+}
+
+.chat-msg.assistant {
+  background: var(--bg);
+  border: 0.5px solid var(--border);
+  align-self: flex-start;
+  border-bottom-left-radius: 3px;
+}
+
+.chat-msg.assistant.streaming::after {
+  content: '▋';
+  opacity: 0.5;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink { 50% { opacity: 0; } }
+
+.chat-input-row {
+  border-top: 0.5px solid var(--border);
+  padding: 0.75rem;
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+}
+
+.chat-input-row textarea {
+  flex: 1;
+  height: 60px;
+  resize: none;
+}
+
+.chat-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.quick-prompt {
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 10px 13px;
+  font-size: 13px;
+  color: var(--muted);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.15s, color 0.15s;
+  width: 100%;
+}
+
+.quick-prompt:hover { border-color: var(--accent-border); color: var(--text); }
+
+/* ─── Divider ─────────────────────────────────────────────────────────────── */
+hr.section-divider {
+  border: none;
+  border-top: 0.5px solid var(--border);
+  margin: 1rem 0;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  header { padding: 0 1rem; gap: 1rem; }
+  main { padding: 1rem; }
+  .item-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+  .day-card { min-height: 72px; padding: 5px; }
+  .day-num  { font-size: 12px; }
+}

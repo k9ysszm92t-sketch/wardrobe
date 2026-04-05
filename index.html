@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wardrobe</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+
+  <header>
+    <span class="logo">Wardrobe</span>
+    <nav>
+      <button class="active" data-view="calendar">Calendar</button>
+      <button data-view="wardrobe">Items</button>
+      <button data-view="chat">Style chat</button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ── Calendar view ─────────────────────────────────────────────────── -->
+    <section id="view-calendar" class="view active">
+      <div class="cal-header">
+        <div id="cal-month" style="font-size:17px;font-weight:500;"></div>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <button class="btn btn-sm" id="btn-toggle-plan-editor">Plan week with AI</button>
+          <button class="btn btn-sm" id="btn-log-today">Log today</button>
+        </div>
+      </div>
+
+      <!-- Plan prompt editor (hidden by default) -->
+      <div class="plan-editor" id="plan-editor" style="display:none;">
+        <div style="font-size:13px;font-weight:500;margin-bottom:0.5rem;color:var(--muted)">Outfit planning prompt</div>
+        <textarea id="plan-prompt-text"></textarea>
+        <div style="display:flex;gap:8px;justify-content:flex-end;">
+          <button class="btn btn-sm" id="btn-plan-cancel">Cancel</button>
+          <button class="btn btn-sm btn-primary" id="btn-plan-send">Generate plan ↗</button>
+        </div>
+      </div>
+
+      <div class="dow-row">
+        <div class="dow-cell">Sun</div>
+        <div class="dow-cell">Mon</div>
+        <div class="dow-cell">Tue</div>
+        <div class="dow-cell">Wed</div>
+        <div class="dow-cell">Thu</div>
+        <div class="dow-cell">Fri</div>
+        <div class="dow-cell">Sat</div>
+      </div>
+
+      <div class="cal-week-label">Past week</div>
+      <div class="cal-grid" id="cal-past"></div>
+
+      <hr class="section-divider">
+      <div class="cal-week-label">This week</div>
+      <div class="cal-grid" id="cal-current"></div>
+
+      <hr class="section-divider">
+      <div class="cal-week-label" id="cal-next-label">Next week — AI plan available</div>
+      <div class="cal-grid" id="cal-next"></div>
+
+      <!-- Day detail panel -->
+      <div class="day-detail" id="day-detail" style="display:none;"></div>
+    </section>
+
+    <!-- ── Wardrobe manager ───────────────────────────────────────────────── -->
+    <section id="view-wardrobe" class="view">
+      <div class="filter-bar">
+        <input type="search" id="filter-search" placeholder="Search items…">
+        <select id="filter-category">
+          <option value="">All categories</option>
+        </select>
+        <select id="filter-brand">
+          <option value="">All brands</option>
+        </select>
+        <select id="filter-season">
+          <option value="">All seasons</option>
+          <option value="spring">Spring</option>
+          <option value="summer">Summer</option>
+          <option value="fall">Fall</option>
+          <option value="winter">Winter</option>
+        </select>
+        <select id="filter-colour">
+          <option value="">All colours</option>
+        </select>
+      </div>
+      <div style="font-size:13px;color:var(--hint);margin-bottom:0.75rem;" id="wardrobe-count"></div>
+      <div class="item-grid" id="item-grid">
+        <div class="loading"><div class="spinner"></div> Loading items…</div>
+      </div>
+    </section>
+
+    <!-- ── Style chat ─────────────────────────────────────────────────────── -->
+    <section id="view-chat" class="view">
+      <div class="chat-layout">
+        <div class="chat-window">
+          <div class="chat-messages" id="chat-messages">
+            <div class="chat-msg assistant">
+              Ask me anything about your wardrobe — outfit advice, what to buy, or whether two items work together.
+            </div>
+          </div>
+          <div class="chat-input-row">
+            <textarea id="chat-input" placeholder="Ask about your wardrobe…"></textarea>
+            <button class="btn btn-primary" id="btn-chat-send">Send</button>
+          </div>
+        </div>
+        <div class="chat-sidebar">
+          <div style="font-size:12px;color:var(--hint);margin-bottom:4px;">Quick prompts</div>
+          <button class="quick-prompt" data-prompt="What are some versatile outfit combinations I could make from my current wardrobe?">
+            Versatile combinations
+          </button>
+          <button class="quick-prompt" data-prompt="Which items in my wardrobe haven't been worn recently and should be rotated back in?">
+            Underused items
+          </button>
+          <button class="quick-prompt" data-prompt="What gaps do you see in my wardrobe? What one or two items would add the most versatility?">
+            Wardrobe gaps
+          </button>
+          <button class="quick-prompt" data-prompt="Based on my wardrobe, what colour palette am I working with? Any clashes?">
+            Colour palette review
+          </button>
+          <button class="quick-prompt" data-prompt="I need a smart-casual Friday outfit. What works from my wardrobe?">
+            Friday outfit
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+name = "wardrobe-worker"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+
+# Set your API key as a secret (never commit it):
+#   wrangler secret put ANTHROPIC_API_KEY
+# Then paste your key when prompted.
+
+[vars]
+# Non-secret config goes here if needed
