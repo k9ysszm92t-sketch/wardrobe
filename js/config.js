@@ -1,10 +1,10 @@
 const CONFIG = {
   supabase: {
-    url: 'https://YOUR_PROJECT.supabase.co',
-    anonKey: 'YOUR_SUPABASE_ANON_KEY',
+    url: 'https://hvijvibhpmlqxcdjamaf.supabase.co',
+    anonKey: 'sb_publishable_3R0dSM8sNxCsOirnS12elg_JSaUXK7M',
   },
   worker: {
-    url: 'https://YOUR_WORKER.YOUR_SUBDOMAIN.workers.dev',
+    url: 'https://holy-brook-9ddd.kys4krsj9d.workers.dev/',
   },
   weather: {
     latitude: 45.4215,
