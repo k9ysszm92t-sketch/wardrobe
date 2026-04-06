@@ -8,11 +8,16 @@ on:
     paths:
       - 'data/colours.json'
 
+permissions:
+  contents: write
+
 jobs:
   rebuild:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Fetch items from Supabase and write style-index.json
         env:
