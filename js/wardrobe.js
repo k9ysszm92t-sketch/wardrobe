@@ -126,8 +126,8 @@ function makeCard(item) {
 function resolveHex(name) {
   if (!name) return '#888888';
   if (name.startsWith('#')) return name;
-  const key = name.toLowerCase().trim();
-  return colourMap[key] ?? '#888888';
+  // Try exact match first, then lowercase
+  return colourMap[name] ?? colourMap[name.toLowerCase().trim()] ?? '#888888';
 }
 
 function esc(str) {
