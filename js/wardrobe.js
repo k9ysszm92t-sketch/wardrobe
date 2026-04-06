@@ -15,7 +15,16 @@ export async function initWardrobe() {
   grid.innerHTML = '<div class="loading"><div class="spinner"></div> Loading items…</div>';
 
   try {
-    [allItems, colourMap] = await Promise.all([getItems(), getColourMap()]);
+    const [items, rawColourMap] = await Promise.all([getItems(), getColourMap()]);
+    allItems = items;
+
+    // Build a case-insensitive lookup by indexing every key in lowercase too
+    colourMap = {};
+    for (const [k, v] of Object.entries(rawColourMap)) {
+      colourMap[k] = v;                    // preserve original case
+      colourMap[k.toLowerCase()] = v;      // also add lowercase version
+    }
+
     populateFilters();
     render();
     bindFilters();
