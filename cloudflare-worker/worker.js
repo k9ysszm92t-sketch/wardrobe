@@ -8,7 +8,7 @@ const MODEL         = 'claude-haiku-4-5-20251001';  // cheapest, fast enough
 const MAX_TOKENS    = 1024;
 
 // Allowed origin — set to your GitHub Pages URL in production
-const ALLOWED_ORIGIN = '*'; // e.g. 'https://yourusername.github.io'
+const ALLOWED_ORIGIN = 'https://k9ysszm92t-sketch.github.io/wardrobe/'; // e.g. 'https://yourusername.github.io'
 
 export default {
   async fetch(request, env) {
