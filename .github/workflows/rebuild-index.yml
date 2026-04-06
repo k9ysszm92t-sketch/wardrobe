@@ -1,0 +1,51 @@
+name: Rebuild style index
+
+on:
+  schedule:
+    - cron: '0 5 * * *'
+  workflow_dispatch:
+  push:
+    paths:
+      - 'data/colours.json'
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch items from Supabase and write style-index.json
+        env:
+          SUPABASE_URL:      ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: |
+          node - <<'JS'
+          const url  = process.env.SUPABASE_URL;
+          const key  = process.env.SUPABASE_ANON_KEY;
+
+          const res  = await fetch(
+            `${url}/rest/v1/items?select=id,brand,name,category,type,color,seasons,occasions,layerOnly,cvd,last_worn&order=category.asc,name.asc`,
+            { headers: { apikey: key, Authorization: `Bearer ${key}` } }
+          );
+
+          if (!res.ok) {
+            console.error('Supabase fetch failed:', res.status, await res.text());
+            process.exit(1);
+          }
+
+          const items = await res.json();
+          const fs = await import('fs');
+          fs.writeFileSync(
+            'data/style-index.json',
+            JSON.stringify(items, null, 2)
+          );
+          console.log(`Written ${items.length} items to data/style-index.json`);
+          JS
+
+      - name: Commit updated style index
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/style-index.json
+          git diff --cached --quiet || git commit -m "chore: rebuild style index [skip ci]"
+          git push
