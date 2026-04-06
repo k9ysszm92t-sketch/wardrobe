@@ -161,17 +161,40 @@ export async function askClaude({ type, userPrompt, extra = {}, onChunk }) {
 
   if (!res.ok) throw new Error(`Worker error: ${res.status}`);
 
-  // Stream the response
   const reader = res.body.getReader();
   const decoder = new TextDecoder();
   let full = '';
+  let buffer = '';
 
   while (true) {
     const { done, value } = await reader.read();
     if (done) break;
-    const chunk = decoder.decode(value, { stream: true });
-    full += chunk;
-    if (onChunk) onChunk(chunk, full);
+
+    buffer += decoder.decode(value, { stream: true });
+
+    // SSE arrives as lines like:
+    //   event: content_block_delta
+    //   data: {"type":"content_block_delta","delta":{"type":"text_delta","text":"hello"}}
+    const lines = buffer.split('\n');
+    buffer = lines.pop(); // keep incomplete last line in buffer
+
+    for (const line of lines) {
+      if (!line.startsWith('data: ')) continue;
+      const json = line.slice(6).trim();
+      if (!json || json === '[DONE]') continue;
+
+      try {
+        const parsed = JSON.parse(json);
+        // Only care about text deltas
+        if (parsed.type === 'content_block_delta' &&
+            parsed.delta?.type === 'text_delta') {
+          full += parsed.delta.text;
+          if (onChunk) onChunk(parsed.delta.text, full);
+        }
+      } catch {
+        // ignore malformed lines
+      }
+    }
   }
 
   return full;
