@@ -1,1 +1,1614 @@
-[]
+[
+  {
+    "id": "97e03fe8-d468-47de-8711-9385e97c9fcc",
+    "brand": "Shedrain",
+    "name": "Compact Umbrella",
+    "category": "Accessories",
+    "type": "Umbrella",
+    "color": "Black",
+    "seasons": [
+      "All"
+    ],
+    "occasions": [
+      "Casual",
+      "Smart-Casual",
+      "Work",
+      "Formal"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "e7d70510-f679-4a11-9f5e-cd9b351f24b9",
+    "brand": "Icebreaker",
+    "name": "Reversible Beanie",
+    "category": "Accessories",
+    "type": "Beanie",
+    "color": "Black/Heather Grey",
+    "seasons": [
+      "Fall",
+      "Winter"
+    ],
+    "occasions": [
+      "Outdoor",
+      "Casual",
+      "Active"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "1392ade1-a310-40ca-bd03-d67a43c56cec",
+    "brand": "Perry Ellis",
+    "name": "Reversible Belt",
+    "category": "Accessories",
+    "type": "Belt",
+    "color": "Black/Brown",
+    "seasons": [
+      "All"
+    ],
+    "occasions": [
+      "Smart-Casual",
+      "Casual",
+      "Work",
+      "Formal"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "d64fc0a8-fcd1-4631-b2bf-ed0ed1f098d6",
+    "brand": "Unknown",
+    "name": "Sunglasses ×2",
+    "category": "Accessories",
+    "type": "Sunglasses",
+    "color": "Black",
+    "seasons": [
+      "Spring",
+      "Summer",
+      "Fall"
+    ],
+    "occasions": [
+      "Casual",
+      "Smart-Casual",
+      "Outdoor",
+      "Active"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "cc7717b8-eb6c-4e03-be98-f907f06788cc",
+    "brand": "HEAD",
+    "name": "Ultrafit Touchscreen Gloves",
+    "category": "Accessories",
+    "type": "Gloves",
+    "color": "Black",
+    "seasons": [
+      "Winter",
+      "Fall"
+    ],
+    "occasions": [
+      "Active",
+      "Outdoor"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "c455eb92-6f3c-454f-a1cb-e8ecc06ce34a",
+    "brand": "Apple",
+    "name": "Watch Ultra 2 + Milanese Loop / Alpine Loop",
+    "category": "Accessories",
+    "type": "Watch",
+    "color": "Silver/Natural Titanium",
+    "seasons": [
+      "All"
+    ],
+    "occasions": [
+      "All"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "17e4d3df-47d7-4f95-968e-ee60708fff27",
+    "brand": "MyTagalongs",
+    "name": "8-Pod Packing System",
+    "category": "Bags & Luggage",
+    "type": "Packing Organizer",
+    "color": "N/A",
+    "seasons": [
+      "All"
+    ],
+    "occasions": [
+      "Travel"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "f21d42c3-184d-4ac8-989d-9670dca051bf",
+    "brand": "Fossil",
+    "name": "Canyon Duffle",
+    "category": "Bags & Luggage",
+    "type": "Weekender Duffel",
+    "color": "Black/Brown",
+    "seasons": [
+      "All"
+    ],
+    "occasions": [
+      "Travel",
+      "Smart-Casual",
+      "Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "b030844c-bc2e-415b-be44-332184ffce88",
+    "brand": "Quechua (Decathlon)",
+    "name": "NH Escape 500 Hiking Backpack 32L",
+    "category": "Bags & Luggage",
+    "type": "Backpack",
+    "color": "Black",
+    "seasons": [
+      "All"
+    ],
+    "occasions": [
+      "Outdoor",
+      "Active",
+      "Travel",
+      "Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "aededb50-e33a-4732-8c9e-6abd2b05f685",
+    "brand": "Thule",
+    "name": "Subterra Spinner 25\"",
+    "category": "Bags & Luggage",
+    "type": "Hard-Shell Luggage",
+    "color": "Dark Blue",
+    "seasons": [
+      "All"
+    ],
+    "occasions": [
+      "Travel"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "6239ed6e-0572-4202-8e33-7533ba9fd996",
+    "brand": "Icebreaker",
+    "name": "Merino 150 Tank (Black) ×3",
+    "category": "Base Layers",
+    "type": "Tank",
+    "color": "Black",
+    "seasons": [
+      "All"
+    ],
+    "occasions": [
+      "Active",
+      "Casual"
+    ],
+    "layerOnly": true,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "b0ba31a2-744c-46dc-b553-873749179d7c",
+    "brand": "Icebreaker",
+    "name": "Merino 150 Tank (Natural) ×3",
+    "category": "Base Layers",
+    "type": "Tank",
+    "color": "Undyed Natural",
+    "seasons": [
+      "All"
+    ],
+    "occasions": [
+      "Active",
+      "Casual"
+    ],
+    "layerOnly": true,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "7cd67e85-634d-4a4b-976d-434f456df3a5",
+    "brand": "Kirkland",
+    "name": "Midweight Crew Tee ×6",
+    "category": "Base Layers",
+    "type": "Base Layer Tee",
+    "color": "Black",
+    "seasons": [
+      "All"
+    ],
+    "occasions": [
+      "Casual"
+    ],
+    "layerOnly": true,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "21473a29-f981-4d73-8c42-b4ce2ab862c9",
+    "brand": "Le 31 (Simons)",
+    "name": "Contrast Pocket Tee",
+    "category": "Casual Tees",
+    "type": "Tee",
+    "color": "Mid Navy",
+    "seasons": [
+      "Spring",
+      "Summer"
+    ],
+    "occasions": [
+      "Casual"
+    ],
+    "layerOnly": null,
+    "cvd": true,
+    "last_worn": null
+  },
+  {
+    "id": "a8dedea9-861d-4a8f-984e-ff526d12d923",
+    "brand": "Lucky Brand",
+    "name": "Henley 3-Button",
+    "category": "Casual Tees",
+    "type": "Henley",
+    "color": "Heathered Charcoal Grey",
+    "seasons": [
+      "Spring",
+      "Summer",
+      "Fall"
+    ],
+    "occasions": [
+      "Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "000416d2-5ecc-4a9b-a3db-199135bf7f65",
+    "brand": "Bonnetier",
+    "name": "Wolf Raglan Long Sleeve",
+    "category": "Casual Tees",
+    "type": "Long Sleeve Tee",
+    "color": "Heathered Charcoal / Black sleeves",
+    "seasons": [
+      "Spring",
+      "Fall"
+    ],
+    "occasions": [
+      "Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "53cbdc9e-8c23-48f4-8a82-2118bd638ded",
+    "brand": "Lucky Brand",
+    "name": "410 Athletic Fit Jean",
+    "category": "Denim",
+    "type": "Jeans",
+    "color": "Medium Wash Blue (faded)",
+    "seasons": [
+      "All"
+    ],
+    "occasions": [
+      "Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "be15b822-2cd0-4a50-ae4a-0c1fbd7b8cdc",
+    "brand": "Levi's",
+    "name": "514 Straight (Clean Run Adv)",
+    "category": "Denim",
+    "type": "Jeans",
+    "color": "Dark Indigo",
+    "seasons": [
+      "All"
+    ],
+    "occasions": [
+      "Casual",
+      "Smart-Casual"
+    ],
+    "layerOnly": null,
+    "cvd": true,
+    "last_worn": null
+  },
+  {
+    "id": "c0077550-b8e3-4bc9-97c7-061c3b2fa825",
+    "brand": "Levi's",
+    "name": "514 Straight (Everyday Indigo Adv)",
+    "category": "Denim",
+    "type": "Jeans",
+    "color": "Medium Wash Indigo",
+    "seasons": [
+      "All"
+    ],
+    "occasions": [
+      "Casual",
+      "Smart-Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "928a1194-94fe-447f-974a-c20a513b1cfa",
+    "brand": "Levi's",
+    "name": "541 Athletic Taper",
+    "category": "Denim",
+    "type": "Jeans",
+    "color": "Medium Wash Indigo",
+    "seasons": [
+      "All"
+    ],
+    "occasions": [
+      "Casual",
+      "Smart-Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "04c93b23-25ca-4630-bebb-de99fd9d988e",
+    "brand": "Blundstone",
+    "name": "510 Chelsea Boot",
+    "category": "Footwear",
+    "type": "Boot",
+    "color": "Black",
+    "seasons": [
+      "All"
+    ],
+    "occasions": [
+      "Casual",
+      "Smart-Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "e868aab8-f8ad-44df-85ea-a6c1193443a5",
+    "brand": "Lululemon",
+    "name": "Beyondfeel Running Shoe",
+    "category": "Footwear",
+    "type": "Running Shoe",
+    "color": "Gull Grey/Silver/Palm Court",
+    "seasons": [
+      "All"
+    ],
+    "occasions": [
+      "Active"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "2782ada5-41c3-49c0-a97f-cce58b129fb0",
+    "brand": "Bench",
+    "name": "Comfort Slides",
+    "category": "Footwear",
+    "type": "Slides",
+    "color": "Black",
+    "seasons": [
+      "Spring",
+      "Summer"
+    ],
+    "occasions": [
+      "Casual",
+      "Active"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "60113497-4a7a-4866-b8ec-593330927b40",
+    "brand": "KEEN",
+    "name": "KNX Lace",
+    "category": "Footwear",
+    "type": "Sneaker",
+    "color": "Black/Star White",
+    "seasons": [
+      "All"
+    ],
+    "occasions": [
+      "Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "addc593e-334d-4079-9937-9f9cfb200413",
+    "brand": "Town Shoes",
+    "name": "Moc-Toe Lace-Up Boot",
+    "category": "Footwear",
+    "type": "Winter Boot",
+    "color": "Black",
+    "seasons": [
+      "Fall",
+      "Winter",
+      "Spring"
+    ],
+    "occasions": [
+      "Casual",
+      "Smart-Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "8a46f85e-d7c7-4e4c-be9d-270f276dcca6",
+    "brand": "OluKai",
+    "name": "Nohea Moku",
+    "category": "Footwear",
+    "type": "Slip-On",
+    "color": "Charcoal/Clay",
+    "seasons": [
+      "Spring",
+      "Summer",
+      "Fall"
+    ],
+    "occasions": [
+      "Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "57a5f982-4469-4517-a8bb-88c0ee42a059",
+    "brand": "Ole Originals",
+    "name": "Bike Vancouver Tee",
+    "category": "Graphic Tees",
+    "type": "Graphic Tee",
+    "color": "Royal Blue",
+    "seasons": [
+      "Spring",
+      "Summer"
+    ],
+    "occasions": [
+      "Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "33db5aa2-ebeb-4cd3-9d8b-348ba28ca2a7",
+    "brand": "Ole Originals",
+    "name": "Canada Geese Tee",
+    "category": "Graphic Tees",
+    "type": "Graphic Tee",
+    "color": "Faded Red",
+    "seasons": [
+      "Spring",
+      "Summer"
+    ],
+    "occasions": [
+      "Casual"
+    ],
+    "layerOnly": null,
+    "cvd": true,
+    "last_worn": null
+  },
+  {
+    "id": "73dfae7c-be25-426f-b3ba-070ec8e0f46f",
+    "brand": "Ole Originals",
+    "name": "Crow Tee",
+    "category": "Graphic Tees",
+    "type": "Graphic Tee",
+    "color": "Black",
+    "seasons": [
+      "Spring",
+      "Summer"
+    ],
+    "occasions": [
+      "Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "fe01a246-b975-472c-9893-ad7a43e86ca8",
+    "brand": "Ole Originals",
+    "name": "Giant Pacific Octopus Tee",
+    "category": "Graphic Tees",
+    "type": "Graphic Tee",
+    "color": "Faded Red",
+    "seasons": [
+      "Spring",
+      "Summer"
+    ],
+    "occasions": [
+      "Casual"
+    ],
+    "layerOnly": null,
+    "cvd": true,
+    "last_worn": null
+  },
+  {
+    "id": "6514fbea-c023-4aec-836a-47bcbd240fa1",
+    "brand": "Ole Originals",
+    "name": "Humpback Whale Tee",
+    "category": "Graphic Tees",
+    "type": "Graphic Tee",
+    "color": "Royal Blue",
+    "seasons": [
+      "Spring",
+      "Summer"
+    ],
+    "occasions": [
+      "Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "3072d373-7fee-44cf-8d70-6d9d5926cfd6",
+    "brand": "Inspira",
+    "name": "Mountain Goat Tee",
+    "category": "Graphic Tees",
+    "type": "Graphic Tee",
+    "color": "Black",
+    "seasons": [
+      "Spring",
+      "Summer"
+    ],
+    "occasions": [
+      "Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "39cd5824-fc19-4796-b61e-1e62715ad5ca",
+    "brand": "Ole Originals",
+    "name": "Sitka Spruce Tee",
+    "category": "Graphic Tees",
+    "type": "Graphic Tee",
+    "color": "Heather Grey",
+    "seasons": [
+      "Spring",
+      "Summer"
+    ],
+    "occasions": [
+      "Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "90f3670f-c1dc-4efd-bda4-95ebd80a23ab",
+    "brand": "Ole Originals",
+    "name": "Snowbirds Formation Tee",
+    "category": "Graphic Tees",
+    "type": "Graphic Tee",
+    "color": "Black",
+    "seasons": [
+      "Spring",
+      "Summer"
+    ],
+    "occasions": [
+      "Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "b05e4167-03f1-48f9-a4a1-4a74c217b662",
+    "brand": "Unknown",
+    "name": "Vinyl / Unknown Pleasures Tee",
+    "category": "Graphic Tees",
+    "type": "Graphic Tee",
+    "color": "Black",
+    "seasons": [
+      "Spring",
+      "Summer"
+    ],
+    "occasions": [
+      "Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "86d0294f-8b25-43f8-8018-a7554479c2d6",
+    "brand": "Arc'teryx",
+    "name": "Adahy Hoody",
+    "category": "Outerwear",
+    "type": "Fleece Midlayer",
+    "color": "Black Sapphire",
+    "seasons": [
+      "Fall",
+      "Winter"
+    ],
+    "occasions": [
+      "Outdoor",
+      "Casual"
+    ],
+    "layerOnly": true,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "62ef8ec5-7b46-4a36-af8d-9e299907655d",
+    "brand": "Norden Project",
+    "name": "Anderson Oxford Jacket",
+    "category": "Outerwear",
+    "type": "Insulated Parka",
+    "color": "Grey",
+    "seasons": [
+      "Winter"
+    ],
+    "occasions": [
+      "Casual",
+      "Smart-Casual",
+      "Work"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "b27b5b1f-51f5-49ec-aab8-6f48c93092bd",
+    "brand": "Arc'teryx",
+    "name": "Atom LT Hoody",
+    "category": "Outerwear",
+    "type": "Insulated Midlayer",
+    "color": "Oracle (tan/khaki)",
+    "seasons": [
+      "Fall",
+      "Winter",
+      "Spring"
+    ],
+    "occasions": [
+      "Outdoor",
+      "Casual",
+      "Smart-Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "cc81d74b-deb5-41e1-af25-47fb24c574ec",
+    "brand": "Lululemon",
+    "name": "Engineered Warmth Crew",
+    "category": "Outerwear",
+    "type": "Midlayer Crew",
+    "color": "Silver Drop/Graphite",
+    "seasons": [
+      "Fall",
+      "Winter"
+    ],
+    "occasions": [
+      "Active",
+      "Casual"
+    ],
+    "layerOnly": true,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "18c6da20-eaa6-46e0-a378-71bfeda3316a",
+    "brand": "Outdoor Research",
+    "name": "Foray 3L Jacket",
+    "category": "Outerwear",
+    "type": "Hardshell",
+    "color": "Black",
+    "seasons": [
+      "Fall",
+      "Winter",
+      "Spring"
+    ],
+    "occasions": [
+      "Outdoor",
+      "Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "6ead44d1-163b-4d53-88ee-49f663829a6a",
+    "brand": "Perry Ellis",
+    "name": "Full-Zip Mock-Neck Jacket",
+    "category": "Outerwear",
+    "type": "Zip Jacket",
+    "color": "Black",
+    "seasons": [
+      "Fall",
+      "Winter",
+      "Spring"
+    ],
+    "occasions": [
+      "Smart-Casual",
+      "Work"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "72e0a33d-0e9f-47f7-83eb-14e64b019730",
+    "brand": "Victorinox",
+    "name": "Merino Hybrid Jacket",
+    "category": "Outerwear",
+    "type": "Hybrid Jacket",
+    "color": "Dark Navy/Black",
+    "seasons": [
+      "Fall",
+      "Winter",
+      "Spring"
+    ],
+    "occasions": [
+      "Casual",
+      "Smart-Casual",
+      "Work"
+    ],
+    "layerOnly": null,
+    "cvd": true,
+    "last_worn": null
+  },
+  {
+    "id": "e3109ad6-497d-4785-be64-e3e827ac4f1f",
+    "brand": "Marmot",
+    "name": "PreCip Eco Jacket",
+    "category": "Outerwear",
+    "type": "Rain Jacket",
+    "color": "Bright Green",
+    "seasons": [
+      "Fall",
+      "Winter",
+      "Spring"
+    ],
+    "occasions": [
+      "Outdoor",
+      "Casual"
+    ],
+    "layerOnly": null,
+    "cvd": true,
+    "last_worn": null
+  },
+  {
+    "id": "f013e5b4-3571-4266-afa4-eabc6e5ff7f0",
+    "brand": "Lululemon",
+    "name": "Surge Warm Full Zip",
+    "category": "Outerwear",
+    "type": "Technical Layer",
+    "color": "Heathered Laguna (blue/teal)",
+    "seasons": [
+      "Fall",
+      "Winter",
+      "Spring"
+    ],
+    "occasions": [
+      "Active",
+      "Casual"
+    ],
+    "layerOnly": null,
+    "cvd": true,
+    "last_worn": null
+  },
+  {
+    "id": "63c4e587-e1af-4140-a100-cb671f78e6c2",
+    "brand": "Lululemon",
+    "name": "Surge Warm Half Zip",
+    "category": "Outerwear",
+    "type": "Midlayer",
+    "color": "Gull Grey",
+    "seasons": [
+      "Fall",
+      "Winter",
+      "Spring"
+    ],
+    "occasions": [
+      "Active",
+      "Casual"
+    ],
+    "layerOnly": true,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "3012bf76-aec3-41b0-95bc-af27ded50f59",
+    "brand": "Lululemon",
+    "name": "Textured Spacer Anorak",
+    "category": "Outerwear",
+    "type": "Anorak",
+    "color": "Black",
+    "seasons": [
+      "Fall",
+      "Spring"
+    ],
+    "occasions": [
+      "Casual",
+      "Smart-Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "826f6673-db88-4735-9e8b-7633b0c07222",
+    "brand": "Lululemon",
+    "name": "Airing Easy SS",
+    "category": "Performance Tees",
+    "type": "Performance Tee",
+    "color": "True Navy",
+    "seasons": [
+      "Spring",
+      "Summer"
+    ],
+    "occasions": [
+      "Active",
+      "Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "f04475e4-cc69-4a69-99bf-c814115fc6df",
+    "brand": "Lululemon",
+    "name": "Airing Easy SS",
+    "category": "Performance Tees",
+    "type": "Performance Tee",
+    "color": "Heathered Navy",
+    "seasons": [
+      "Spring",
+      "Summer"
+    ],
+    "occasions": [
+      "Active",
+      "Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "5cf66ada-d057-4cf8-91b4-932891f5e0f7",
+    "brand": "Lululemon",
+    "name": "Airing Easy SS",
+    "category": "Performance Tees",
+    "type": "Performance Tee",
+    "color": "Black",
+    "seasons": [
+      "Spring",
+      "Summer"
+    ],
+    "occasions": [
+      "Active",
+      "Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "15cc20c6-3726-4cc4-bc60-f24934604a99",
+    "brand": "Lululemon",
+    "name": "Evolution Polo",
+    "category": "Polos",
+    "type": "Polo",
+    "color": "Black",
+    "seasons": [
+      "Spring",
+      "Summer",
+      "Fall"
+    ],
+    "occasions": [
+      "Smart-Casual",
+      "Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "1cd44d9b-e1db-4ba0-887e-57a9705e8901",
+    "brand": "Lululemon",
+    "name": "Evolution Polo (Piqué)",
+    "category": "Polos",
+    "type": "Polo",
+    "color": "Blue/Grey Heather",
+    "seasons": [
+      "Spring",
+      "Summer"
+    ],
+    "occasions": [
+      "Casual"
+    ],
+    "layerOnly": true,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "65dc4759-a6fc-4ae7-934f-2bfd7e883c9e",
+    "brand": "Inesis (Decathlon)",
+    "name": "MW500 Polo",
+    "category": "Polos",
+    "type": "Polo",
+    "color": "Grey",
+    "seasons": [
+      "Spring",
+      "Summer",
+      "Fall"
+    ],
+    "occasions": [
+      "Casual",
+      "Smart-Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "694e8a90-dfeb-478f-aca1-4430c3a647cc",
+    "brand": "Inesis (Decathlon)",
+    "name": "MW500 Polo",
+    "category": "Polos",
+    "type": "Polo",
+    "color": "Abyss Blue",
+    "seasons": [
+      "Spring",
+      "Summer",
+      "Fall"
+    ],
+    "occasions": [
+      "Casual",
+      "Smart-Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "22a51df4-200f-4e9d-b3b6-6781cc51aa46",
+    "brand": "Inesis (Decathlon)",
+    "name": "MW500 Polo",
+    "category": "Polos",
+    "type": "Polo",
+    "color": "Black",
+    "seasons": [
+      "Spring",
+      "Summer",
+      "Fall"
+    ],
+    "occasions": [
+      "Casual",
+      "Smart-Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "013a2a4d-b99a-4981-9a2d-f560ab8030c1",
+    "brand": "Lululemon",
+    "name": "Airing Easy Short-Sleeve Shirt",
+    "category": "Shirts",
+    "type": "Short-Sleeve Shirt",
+    "color": "Irregular Dotty Indochine Blue Multi",
+    "seasons": [
+      "Spring",
+      "Summer"
+    ],
+    "occasions": [
+      "Casual",
+      "Smart-Casual"
+    ],
+    "layerOnly": false,
+    "cvd": true,
+    "last_worn": null
+  },
+  {
+    "id": "7fc88153-748d-4611-9a42-08d68ea90e3d",
+    "brand": "Lululemon",
+    "name": "Brushed Woven Overshirt",
+    "category": "Shirts",
+    "type": "Overshirt",
+    "color": "Heathered Raw Linen",
+    "seasons": [
+      "Spring",
+      "Summer",
+      "Fall"
+    ],
+    "occasions": [
+      "Casual",
+      "Smart-Casual"
+    ],
+    "layerOnly": false,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "a7d23845-0eed-4100-bf5c-553a386fe426",
+    "brand": "Lululemon",
+    "name": "Bowline Short 8\" (VersaTwill)",
+    "category": "Shorts",
+    "type": "Shorts",
+    "color": "Black",
+    "seasons": [
+      "Spring",
+      "Summer"
+    ],
+    "occasions": [
+      "Casual",
+      "Smart-Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "61bed2e3-bcb7-46b0-a0e1-4331bf82f866",
+    "brand": "Lululemon",
+    "name": "Commission Short 9\" (Warpstreme)",
+    "category": "Shorts",
+    "type": "Shorts",
+    "color": "Grey Sage",
+    "seasons": [
+      "Spring",
+      "Summer"
+    ],
+    "occasions": [
+      "Casual",
+      "Smart-Casual"
+    ],
+    "layerOnly": null,
+    "cvd": true,
+    "last_worn": null
+  },
+  {
+    "id": "93bbac6a-9425-4589-88fb-160dc092790a",
+    "brand": "Lululemon",
+    "name": "Commission Short 9\" (Warpstreme)",
+    "category": "Shorts",
+    "type": "Shorts",
+    "color": "Obsidian (dark navy)",
+    "seasons": [
+      "Spring",
+      "Summer"
+    ],
+    "occasions": [
+      "Casual",
+      "Smart-Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "811ff94d-c3e0-44a3-915f-9d60b934b527",
+    "brand": "Lululemon",
+    "name": "Commission Short 9\" (Warpstreme)",
+    "category": "Shorts",
+    "type": "Shorts",
+    "color": "Trench (tan/khaki)",
+    "seasons": [
+      "Spring",
+      "Summer"
+    ],
+    "occasions": [
+      "Casual",
+      "Smart-Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "664a2933-ee5b-4c81-9110-a902ac494ec1",
+    "brand": "Lululemon",
+    "name": "Current State Board Short 9\"",
+    "category": "Shorts",
+    "type": "Board Shorts",
+    "color": "Grey",
+    "seasons": [
+      "Summer"
+    ],
+    "occasions": [
+      "Active",
+      "Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "d976dcde-fc59-46a5-a6a1-fa6abf907161",
+    "brand": "Lululemon",
+    "name": "New Venture Short (Piqué)",
+    "category": "Shorts",
+    "type": "Shorts",
+    "color": "Black",
+    "seasons": [
+      "Spring",
+      "Summer"
+    ],
+    "occasions": [
+      "Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "73784f37-f437-4f32-a55a-203c802b9885",
+    "brand": "Lululemon",
+    "name": "Pool Short 7\"",
+    "category": "Shorts",
+    "type": "Swim Shorts",
+    "color": "Red",
+    "seasons": [
+      "Summer"
+    ],
+    "occasions": [
+      "Active"
+    ],
+    "layerOnly": null,
+    "cvd": true,
+    "last_worn": null
+  },
+  {
+    "id": "3ff11b1d-400d-468a-8b77-630c976dd61a",
+    "brand": "Lululemon",
+    "name": "Pool Short 7\"",
+    "category": "Shorts",
+    "type": "Swim Shorts",
+    "color": "Black",
+    "seasons": [
+      "Summer"
+    ],
+    "occasions": [
+      "Active"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "a13d6de7-b83d-49dc-9c1f-9dfbb17f7819",
+    "brand": "Smartwool",
+    "name": "Everyday Striped Crew",
+    "category": "Socks",
+    "type": "Crew Sock",
+    "color": "Black/Grey/Forest",
+    "seasons": [
+      "All"
+    ],
+    "occasions": [
+      "Casual"
+    ],
+    "layerOnly": null,
+    "cvd": true,
+    "last_worn": null
+  },
+  {
+    "id": "dec1af26-d7a1-4bea-9d33-5ae0ca2fea2f",
+    "brand": "Icebreaker",
+    "name": "Hike+ Light Crew",
+    "category": "Socks",
+    "type": "Crew Sock",
+    "color": "Mountain Pattern Black/White",
+    "seasons": [
+      "All"
+    ],
+    "occasions": [
+      "Outdoor",
+      "Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "3f1cb057-6c72-409f-9ae5-fc51c1ee7d45",
+    "brand": "Icebreaker",
+    "name": "Hike+ Medium Crew",
+    "category": "Socks",
+    "type": "Crew Sock",
+    "color": "Black/Grey",
+    "seasons": [
+      "All"
+    ],
+    "occasions": [
+      "Outdoor",
+      "Active"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "2bcb4f30-3ca2-4b09-93b5-7679ed4a0172",
+    "brand": "Icebreaker",
+    "name": "Hike+ Medium Crew (BTH)",
+    "category": "Socks",
+    "type": "Crew Sock",
+    "color": "Black",
+    "seasons": [
+      "All"
+    ],
+    "occasions": [
+      "Outdoor",
+      "Active"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "6c913e13-07a3-4ae8-bfe4-a37b96b59a82",
+    "brand": "Icebreaker",
+    "name": "Lifestyle Light Crew (Argyle Grey)",
+    "category": "Socks",
+    "type": "Crew Sock",
+    "color": "Argyle Grey",
+    "seasons": [
+      "All"
+    ],
+    "occasions": [
+      "Casual",
+      "Smart-Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "afbec525-2308-4bc1-aeb0-fe53d927a43f",
+    "brand": "Cole Haan",
+    "name": "No-Show Liner Dark Grey ×2",
+    "category": "Socks",
+    "type": "No-Show Sock",
+    "color": "Dark Grey",
+    "seasons": [
+      "All"
+    ],
+    "occasions": [
+      "Casual",
+      "Smart-Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "c54a427e-3303-4d3f-980a-a7543e3588a2",
+    "brand": "Cole Haan",
+    "name": "No-Show Liner Light Beige ×2",
+    "category": "Socks",
+    "type": "No-Show Sock",
+    "color": "Light Beige",
+    "seasons": [
+      "All"
+    ],
+    "occasions": [
+      "Casual",
+      "Smart-Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "61cee5c7-d7b8-4a79-9c1d-bc89fff67ff1",
+    "brand": "Cole Haan",
+    "name": "No-Show Liner Light Grey ×2",
+    "category": "Socks",
+    "type": "No-Show Sock",
+    "color": "Light Grey",
+    "seasons": [
+      "All"
+    ],
+    "occasions": [
+      "Casual",
+      "Smart-Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "ef647bc1-1d1e-4290-96c5-b718ae9e00e1",
+    "brand": "Cole Haan",
+    "name": "No-Show Liner Slate Blue-Grey ×2",
+    "category": "Socks",
+    "type": "No-Show Sock",
+    "color": "Slate Blue-Grey",
+    "seasons": [
+      "All"
+    ],
+    "occasions": [
+      "Casual",
+      "Smart-Casual"
+    ],
+    "layerOnly": null,
+    "cvd": true,
+    "last_worn": null
+  },
+  {
+    "id": "3e4361a6-eb90-46cb-aa4e-4c14a76c42cb",
+    "brand": "Smartwool",
+    "name": "Striped Crew",
+    "category": "Socks",
+    "type": "Crew Sock",
+    "color": "Grey/Black/Purple",
+    "seasons": [
+      "All"
+    ],
+    "occasions": [
+      "Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "e4edd458-db61-42e2-8ae5-a3c371aa913a",
+    "brand": "Lululemon",
+    "name": "City Sweat Full Zip Hoodie",
+    "category": "Sweaters & Layers",
+    "type": "Hoodie",
+    "color": "Heathered True Navy",
+    "seasons": [
+      "Fall",
+      "Winter",
+      "Spring"
+    ],
+    "occasions": [
+      "Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "c928651c-32b6-4440-9d6d-ffcf649ee38d",
+    "brand": "Arc'teryx",
+    "name": "Covert Cardigan",
+    "category": "Sweaters & Layers",
+    "type": "Cardigan",
+    "color": "Yukon Heather (warm brown/tan)",
+    "seasons": [
+      "Fall",
+      "Winter",
+      "Spring"
+    ],
+    "occasions": [
+      "Smart-Casual",
+      "Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "5fa5c357-622e-4f59-8048-b7887838f0b2",
+    "brand": "Lululemon",
+    "name": "Team Canada Hoodie",
+    "category": "Sweaters & Layers",
+    "type": "Hoodie",
+    "color": "Deep Black",
+    "seasons": [
+      "Fall",
+      "Winter",
+      "Spring"
+    ],
+    "occasions": [
+      "Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "57719f08-cb63-4519-94f1-6327fa218f4c",
+    "brand": "Lululemon",
+    "name": "Textured Knit Crewneck",
+    "category": "Sweaters & Layers",
+    "type": "Crewneck",
+    "color": "Heathered Blackened Pine",
+    "seasons": [
+      "Fall",
+      "Winter",
+      "Spring"
+    ],
+    "occasions": [
+      "Smart-Casual",
+      "Casual"
+    ],
+    "layerOnly": null,
+    "cvd": true,
+    "last_worn": null
+  },
+  {
+    "id": "68b9ae35-13a1-48cf-8800-90948e445460",
+    "brand": "Lululemon",
+    "name": "Textured Knit Crewneck",
+    "category": "Sweaters & Layers",
+    "type": "Crewneck",
+    "color": "Heathered Rhino Grey",
+    "seasons": [
+      "Fall",
+      "Winter",
+      "Spring"
+    ],
+    "occasions": [
+      "Smart-Casual",
+      "Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "1450a976-b732-455e-bfd1-a4b6107edb04",
+    "brand": "Lululemon",
+    "name": "Textured Knit Crewneck",
+    "category": "Sweaters & Layers",
+    "type": "Crewneck",
+    "color": "Heathered Black",
+    "seasons": [
+      "Fall",
+      "Winter",
+      "Spring"
+    ],
+    "occasions": [
+      "Smart-Casual",
+      "Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "6ee7d82b-7590-48fe-b7ff-86126fe5a3fd",
+    "brand": "Lululemon",
+    "name": "ABC Classic-Fit Golf Trouser",
+    "category": "Trousers",
+    "type": "Trouser",
+    "color": "Black",
+    "seasons": [
+      "All"
+    ],
+    "occasions": [
+      "Smart-Casual",
+      "Work",
+      "Formal"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "fa1f5d5e-ee57-454c-9772-4b818319bdbb",
+    "brand": "Lululemon",
+    "name": "ABC Classic-Fit Trouser (Corduroy)",
+    "category": "Trousers",
+    "type": "Trouser",
+    "color": "Black",
+    "seasons": [
+      "Fall",
+      "Winter"
+    ],
+    "occasions": [
+      "Smart-Casual",
+      "Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "4586a513-c514-43d4-9460-48a141070a78",
+    "brand": "Lululemon",
+    "name": "ABC Classic-Fit Trouser (VersaTwill)",
+    "category": "Trousers",
+    "type": "Trouser",
+    "color": "Black",
+    "seasons": [
+      "All"
+    ],
+    "occasions": [
+      "Smart-Casual",
+      "Work",
+      "Formal"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "7ac20d2b-5304-46bc-8ed3-b47ea524c97c",
+    "brand": "Lululemon",
+    "name": "ABC Classic-Fit Trouser (VersaTwill)",
+    "category": "Trousers",
+    "type": "Trouser",
+    "color": "Rover (tan/camel)",
+    "seasons": [
+      "Spring",
+      "Summer",
+      "Fall"
+    ],
+    "occasions": [
+      "Smart-Casual",
+      "Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "5070d7be-1427-4803-a5a2-8982d9e92edd",
+    "brand": "Lululemon",
+    "name": "ABC Classic-Fit Twill",
+    "category": "Trousers",
+    "type": "Trouser",
+    "color": "Grey Sage",
+    "seasons": [
+      "Spring",
+      "Summer",
+      "Fall"
+    ],
+    "occasions": [
+      "Smart-Casual",
+      "Casual"
+    ],
+    "layerOnly": null,
+    "cvd": true,
+    "last_worn": null
+  },
+  {
+    "id": "b21f2cc6-22cc-484b-9f6e-4d20cc27fa77",
+    "brand": "Outdoor Research",
+    "name": "Ferrosi Pants",
+    "category": "Trousers",
+    "type": "Technical Pants",
+    "color": "Black",
+    "seasons": [
+      "All"
+    ],
+    "occasions": [
+      "Outdoor",
+      "Active",
+      "Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  }
+]
