@@ -4,7 +4,7 @@ const CONFIG = {
     anonKey: 'sb_publishable_3R0dSM8sNxCsOirnS12elg_JSaUXK7M',
   },
   worker: {
-    url: 'https://wardrobe-dan.workers.dev/',
+    url: 'https://wardrobe-worker.wardrobe-dan.workers.dev/',
   },
   weather: {
     latitude: 45.4215,
