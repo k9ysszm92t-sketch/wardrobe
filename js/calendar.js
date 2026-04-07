@@ -282,7 +282,7 @@ function buildWeatherSummary() {
 function resolveHex(name) {
   if (!name) return '#888888';
   if (name.startsWith('#')) return name;
-  return colourMap[name.toLowerCase().trim()] ?? '#888888';
+  return colourMap[name] ?? colourMap[name.toLowerCase().trim()] ?? '#888888';
 }
 
 function weekStart(date) {
