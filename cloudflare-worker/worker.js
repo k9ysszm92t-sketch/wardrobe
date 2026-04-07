@@ -1,6 +1,6 @@
 import {
-  SYSTEM_QA, SYSTEM_PLAN, SYSTEM_INGEST,
-  buildQAMessages, buildPlanMessages, buildIngestMessages,
+  SYSTEM_QA, SYSTEM_PLAN, SYSTEM_INGEST, SYSTEM_LOG,
+  buildQAMessages, buildPlanMessages, buildIngestMessages, buildLogMessages,
 } from './prompts.js';
 
 const ANTHROPIC_API = 'https://api.anthropic.com/v1/messages';
@@ -43,13 +43,19 @@ export default {
     } else if (type === 'ingest') {
       system   = SYSTEM_INGEST;
       messages = buildIngestMessages(userPrompt, styleIndex ?? []);
+    } else if (type === 'log') {
+      system   = SYSTEM_LOG;
+      messages = buildLogMessages(userPrompt, styleIndex ?? []);
     } else {
       // 'qa' and anything else
       system   = SYSTEM_QA;
       messages = buildQAMessages(userPrompt, styleIndex ?? []);
     }
 
-    // Call Anthropic API with streaming
+    // Log requests return JSON — don't stream, return full response
+    const streamMode = type !== 'log';
+
+    // Call Anthropic API
     const anthropicReq = await fetch(ANTHROPIC_API, {
       method: 'POST',
       headers: {
@@ -62,7 +68,7 @@ export default {
         max_tokens: MAX_TOKENS,
         system,
         messages,
-        stream: true,
+        stream: streamMode,
       }),
     });
 
@@ -71,7 +77,20 @@ export default {
       return corsResponse(`Anthropic error: ${err}`, 502);
     }
 
-    // Pass the stream directly back to the browser
+    // Non-streaming: extract text and return as plain JSON string
+    if (!streamMode) {
+      const data = await anthropicReq.json();
+      const text = data.content?.map(b => b.text ?? '').join('') ?? '';
+      return new Response(text, {
+        status: 200,
+        headers: {
+          'Content-Type':                'application/json',
+          'Access-Control-Allow-Origin': ALLOWED_ORIGIN,
+        },
+      });
+    }
+
+    // Streaming: pass through directly
     return new Response(anthropicReq.body, {
       status: 200,
       headers: {
