@@ -21,11 +21,18 @@ export async function initCalendar() {
   showLoading();
 
   try {
-    const [rawLog, weather, cMap] = await Promise.all([
-      getWearLog(14, 14),
-      getWeatherForecast(),
-      getColourMap(),
-    ]);
+           const [rawLog, weather, rawColourMap] = await Promise.all([
+           getWearLog(14, 14),
+           getWeatherForecast(),
+           getColourMap(),
+]);
+
+// Index both original case and lowercase so "Black/Star White" and "black/star white" both resolve
+colourMap = {};
+for (const [k, v] of Object.entries(rawColourMap)) {
+  colourMap[k] = v;
+  colourMap[k.toLowerCase()] = v;
+}
 
     colourMap   = cMap;
     wearByDate  = groupByDate(rawLog);
