@@ -1,5 +1,5 @@
-import { 
-  SYSTEM_QA, SYSTEM_PLAN, SYSTEM_INGEST, SYSTEM_LOG,
+import {
+  SYSTEM_QA, SYSTEM_PLAN, SYSTEM_INGEST, getSystemLog,
   buildQAMessages, buildPlanMessages, buildIngestMessages, buildLogMessages,
 } from './prompts.js';
 
@@ -44,7 +44,7 @@ export default {
       system   = SYSTEM_INGEST;
       messages = buildIngestMessages(userPrompt, styleIndex ?? []);
     } else if (type === 'log') {
-      system   = SYSTEM_LOG;
+      system   = getSystemLog();
       messages = buildLogMessages(userPrompt, styleIndex ?? []);
     } else {
       // 'qa' and anything else
