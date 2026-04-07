@@ -1,4 +1,4 @@
-import {
+import { 
   SYSTEM_QA, SYSTEM_PLAN, SYSTEM_INGEST, SYSTEM_LOG,
   buildQAMessages, buildPlanMessages, buildIngestMessages, buildLogMessages,
 } from './prompts.js';
