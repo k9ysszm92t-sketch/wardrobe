@@ -161,6 +161,12 @@ export async function askClaude({ type, userPrompt, extra = {}, onChunk }) {
 
   if (!res.ok) throw new Error(`Worker error: ${res.status}`);
 
+  // Log requests return plain JSON (non-streaming)
+  if (type === 'log') {
+    return await res.text();
+  }
+
+  // All other types stream SSE
   const reader = res.body.getReader();
   const decoder = new TextDecoder();
   let full = '';
@@ -172,11 +178,8 @@ export async function askClaude({ type, userPrompt, extra = {}, onChunk }) {
 
     buffer += decoder.decode(value, { stream: true });
 
-    // SSE arrives as lines like:
-    //   event: content_block_delta
-    //   data: {"type":"content_block_delta","delta":{"type":"text_delta","text":"hello"}}
     const lines = buffer.split('\n');
-    buffer = lines.pop(); // keep incomplete last line in buffer
+    buffer = lines.pop();
 
     for (const line of lines) {
       if (!line.startsWith('data: ')) continue;
@@ -185,7 +188,6 @@ export async function askClaude({ type, userPrompt, extra = {}, onChunk }) {
 
       try {
         const parsed = JSON.parse(json);
-        // Only care about text deltas
         if (parsed.type === 'content_block_delta' &&
             parsed.delta?.type === 'text_delta') {
           full += parsed.delta.text;
