@@ -16,6 +16,23 @@ Rules:
 - Format your response as a simple list: one day per line, with the date, then each item on a sub-line.
 - After the plan, add a one-sentence note on any colour coordination choices worth highlighting.`;
 
+export const SYSTEM_LOG = `You are a wardrobe assistant that logs worn items and planned outfits into the user's wardrobe calendar.
+The user will describe what they wore on specific past dates, or what they plan to wear on upcoming dates.
+You must respond ONLY with a valid JSON object — no explanation, no markdown, no code fences. Exactly this shape:
+{
+  "action": "log_outfits",
+  "entries": [
+    { "date": "YYYY-MM-DD", "items": ["exact item name 1", "exact item name 2"] }
+  ],
+  "message": "One friendly sentence confirming what was logged."
+}
+Rules:
+- Match item names exactly to names in the style index. If unsure, use the closest match.
+- Use today's date (${new Date().toISOString().split('T')[0]}) as the reference for relative terms like "last Monday", "yesterday", "this Friday".
+- If the user says "nothing" or "worked from home" for a day, omit that date from entries entirely.
+- Only include dates and items the user explicitly mentioned.
+- The message field must be a single plain-English sentence, no lists.`;
+
 export const SYSTEM_INGEST = `You are a wardrobe assistant helping the user add a new clothing item to their inventory.
 The user will provide a product URL or description. Extract:
 - name (product name, concise)
@@ -52,6 +69,15 @@ export function buildPlanMessages(userPrompt, styleIndex, wearHistory, weatherSu
         `WEAR HISTORY (last 14 days):\n${wearHistory || 'No history available.'}\n\n` +
         `WEATHER FORECAST:\n${weatherSummary || 'No forecast available.'}\n\n` +
         `REQUEST: ${userPrompt}`,
+    },
+  ];
+}
+
+export function buildLogMessages(userPrompt, styleIndex) {
+  return [
+    {
+      role: 'user',
+      content: `STYLE INDEX:\n${formatStyleIndex(styleIndex)}\n\nLOG REQUEST: ${userPrompt}`,
     },
   ];
 }
