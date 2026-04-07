@@ -312,6 +312,11 @@ async function reload() {
   selectedDate = null;
 }
 
+// Exported so chat.js can trigger a calendar refresh after logging outfits
+export async function reloadCalendar() {
+  await reload();
+}
+
 function esc(str) {
   return String(str)
     .replace(/&/g, '&amp;')
