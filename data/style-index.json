@@ -377,10 +377,14 @@
     "type": "Shirt",
     "color": "White/Navy/Burgundy Check Plaid",
     "seasons": [
-      "Fall",
-      "Winter"
+      "Spring",
+      "Summer",
+      "Fall"
     ],
-    "occasions": null,
+    "occasions": [
+      "Work",
+      "Formal"
+    ],
     "layerOnly": null,
     "cvd": true,
     "last_worn": null
@@ -393,11 +397,15 @@
     "type": "Shirt",
     "color": "White/Grey Confetti Dot",
     "seasons": [
-      "Fall",
-      "Winter"
+      "Spring",
+      "Summer",
+      "Fall"
     ],
-    "occasions": null,
-    "layerOnly": null,
+    "occasions": [
+      "Work",
+      "Formal"
+    ],
+    "layerOnly": false,
     "cvd": false,
     "last_worn": null
   },
@@ -409,10 +417,14 @@
     "type": "Shirt",
     "color": "White/Navy/Red Cross Dot",
     "seasons": [
-      "Fall",
-      "Winter"
+      "Spring",
+      "Summer",
+      "Fall"
     ],
-    "occasions": null,
+    "occasions": [
+      "Work",
+      "Formal"
+    ],
     "layerOnly": null,
     "cvd": true,
     "last_worn": null
@@ -425,9 +437,14 @@
     "type": "Shirt",
     "color": "White/Grey/Navy/Purple Plaid",
     "seasons": [
-      "Spring"
+      "Spring",
+      "Summer",
+      "Fall"
     ],
-    "occasions": null,
+    "occasions": [
+      "Work",
+      "Formal"
+    ],
     "layerOnly": null,
     "cvd": false,
     "last_worn": null
