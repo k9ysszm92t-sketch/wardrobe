@@ -370,6 +370,69 @@
     "last_worn": null
   },
   {
+    "id": "31aee7ef-2653-4d26-89a4-8d6ab010101d",
+    "brand": "Banana Republic",
+    "name": "Burgundy Check Plaid Shirt",
+    "category": "Dress shirt",
+    "type": "Shirt",
+    "color": "White/Navy/Burgundy Check Plaid",
+    "seasons": [
+      "Fall",
+      "Winter"
+    ],
+    "occasions": null,
+    "layerOnly": null,
+    "cvd": true,
+    "last_worn": null
+  },
+  {
+    "id": "f88afd25-5910-4b9c-8f9d-374f17627d40",
+    "brand": "Banana Republic",
+    "name": "Grey Confetti Dot Dress Shirt",
+    "category": "Dress shirt",
+    "type": "Shirt",
+    "color": "White/Grey Confetti Dot",
+    "seasons": [
+      "Fall",
+      "Winter"
+    ],
+    "occasions": null,
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "7279e369-9223-4a98-9231-e0806d5a9308",
+    "brand": "Banana Republic",
+    "name": "Navy Cross Dot Dress Shirt",
+    "category": "Dress shirt",
+    "type": "Shirt",
+    "color": "White/Navy/Red Cross Dot",
+    "seasons": [
+      "Fall",
+      "Winter"
+    ],
+    "occasions": null,
+    "layerOnly": null,
+    "cvd": true,
+    "last_worn": null
+  },
+  {
+    "id": "b284edc5-8e8c-4439-b70c-a121be8b0972",
+    "brand": "Banana Republic",
+    "name": "Purple & Grey Plaid Shirt",
+    "category": "Dress shirt",
+    "type": "Shirt",
+    "color": "White/Grey/Navy/Purple Plaid",
+    "seasons": [
+      "Spring"
+    ],
+    "occasions": null,
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
     "id": "04c93b23-25ca-4630-bebb-de99fd9d988e",
     "brand": "Blundstone",
     "name": "510 Chelsea Boot",
@@ -860,12 +923,12 @@
     "last_worn": null
   },
   {
-    "id": "826f6673-db88-4735-9e8b-7633b0c07222",
+    "id": "f04475e4-cc69-4a69-99bf-c814115fc6df",
     "brand": "Lululemon",
     "name": "Airing Easy SS",
     "category": "Performance Tees",
     "type": "Performance Tee",
-    "color": "True Navy",
+    "color": "Heathered Navy",
     "seasons": [
       "Spring",
       "Summer"
@@ -879,12 +942,12 @@
     "last_worn": null
   },
   {
-    "id": "f04475e4-cc69-4a69-99bf-c814115fc6df",
+    "id": "826f6673-db88-4735-9e8b-7633b0c07222",
     "brand": "Lululemon",
     "name": "Airing Easy SS",
     "category": "Performance Tees",
     "type": "Performance Tee",
-    "color": "Heathered Navy",
+    "color": "True Navy",
     "seasons": [
       "Spring",
       "Summer"
@@ -955,12 +1018,12 @@
     "last_worn": null
   },
   {
-    "id": "65dc4759-a6fc-4ae7-934f-2bfd7e883c9e",
+    "id": "22a51df4-200f-4e9d-b3b6-6781cc51aa46",
     "brand": "Inesis (Decathlon)",
     "name": "MW500 Polo",
     "category": "Polos",
     "type": "Polo",
-    "color": "Grey",
+    "color": "Black",
     "seasons": [
       "Spring",
       "Summer",
@@ -995,12 +1058,12 @@
     "last_worn": null
   },
   {
-    "id": "22a51df4-200f-4e9d-b3b6-6781cc51aa46",
+    "id": "65dc4759-a6fc-4ae7-934f-2bfd7e883c9e",
     "brand": "Inesis (Decathlon)",
     "name": "MW500 Polo",
     "category": "Polos",
     "type": "Polo",
-    "color": "Black",
+    "color": "Grey",
     "seasons": [
       "Spring",
       "Summer",
@@ -1054,12 +1117,129 @@
     "last_worn": null
   },
   {
+    "id": "0aee37b4-c15b-464b-9a96-c9f46f06b1e5",
+    "brand": "J.Crew",
+    "name": "Button-Down Shirt (Light Blue/White Fine Stripe)",
+    "category": "Shirts",
+    "type": "Casual Shirt",
+    "color": "Light Blue/White Fine Stripe",
+    "seasons": [
+      "Spring",
+      "Summer"
+    ],
+    "occasions": [
+      "Casual",
+      "Smart-Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "ab2ee98f-2afa-45e9-8c8f-6216ac027edf",
+    "brand": "J.Crew",
+    "name": "Button-Down Shirt (Multi-blue gingham)",
+    "category": "Shirts",
+    "type": "Casual Shirt",
+    "color": "Blue/Teal/White Multi Gingham",
+    "seasons": [
+      "Spring",
+      "Summer"
+    ],
+    "occasions": [
+      "Casual",
+      "Smart-Casual"
+    ],
+    "layerOnly": null,
+    "cvd": true,
+    "last_worn": null
+  },
+  {
+    "id": "3188a834-f9b5-4c34-92d9-b7233aa3baaa",
+    "brand": "J.Crew",
+    "name": "Button-Down Shirt (Navy/White Gingham)",
+    "category": "Shirts",
+    "type": "Casual Shirt",
+    "color": "Navy/White Gingham",
+    "seasons": [
+      "Spring",
+      "Summer",
+      "Fall"
+    ],
+    "occasions": [
+      "Casual",
+      "Smart-Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "a69978fd-8484-4b4c-8cb9-f046d210c9a6",
+    "brand": "Lululemon",
+    "name": "Commission LS Button-Down (Pocket)",
+    "category": "Shirts",
+    "type": "Button-Down",
+    "color": "Dove Grey",
+    "seasons": [
+      "Spring",
+      "Summer",
+      "Fall"
+    ],
+    "occasions": [
+      "Smart-Casual",
+      "Work"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "b3281e9a-6c7b-41d2-a0fc-68f02fca6810",
+    "brand": "Lululemon",
+    "name": "Commission LS Button-Down (Pocket)",
+    "category": "Shirts",
+    "type": "Button-Down",
+    "color": "Blue Linen/White",
+    "seasons": [
+      "Spring",
+      "Summer"
+    ],
+    "occasions": [
+      "Smart-Casual",
+      "Casual",
+      "Work"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
     "id": "a7d23845-0eed-4100-bf5c-553a386fe426",
     "brand": "Lululemon",
     "name": "Bowline Short 8\" (VersaTwill)",
     "category": "Shorts",
     "type": "Shorts",
     "color": "Black",
+    "seasons": [
+      "Spring",
+      "Summer"
+    ],
+    "occasions": [
+      "Casual",
+      "Smart-Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "811ff94d-c3e0-44a3-915f-9d60b934b527",
+    "brand": "Lululemon",
+    "name": "Commission Short 9\" (Warpstreme)",
+    "category": "Shorts",
+    "type": "Shorts",
+    "color": "Trench (tan/khaki)",
     "seasons": [
       "Spring",
       "Summer"
@@ -1111,25 +1291,6 @@
     "last_worn": null
   },
   {
-    "id": "811ff94d-c3e0-44a3-915f-9d60b934b527",
-    "brand": "Lululemon",
-    "name": "Commission Short 9\" (Warpstreme)",
-    "category": "Shorts",
-    "type": "Shorts",
-    "color": "Trench (tan/khaki)",
-    "seasons": [
-      "Spring",
-      "Summer"
-    ],
-    "occasions": [
-      "Casual",
-      "Smart-Casual"
-    ],
-    "layerOnly": null,
-    "cvd": false,
-    "last_worn": null
-  },
-  {
     "id": "664a2933-ee5b-4c81-9110-a902ac494ec1",
     "brand": "Lululemon",
     "name": "Current State Board Short 9\"",
@@ -1166,23 +1327,6 @@
     "last_worn": null
   },
   {
-    "id": "73784f37-f437-4f32-a55a-203c802b9885",
-    "brand": "Lululemon",
-    "name": "Pool Short 7\"",
-    "category": "Shorts",
-    "type": "Swim Shorts",
-    "color": "Red",
-    "seasons": [
-      "Summer"
-    ],
-    "occasions": [
-      "Active"
-    ],
-    "layerOnly": null,
-    "cvd": true,
-    "last_worn": null
-  },
-  {
     "id": "3ff11b1d-400d-468a-8b77-630c976dd61a",
     "brand": "Lululemon",
     "name": "Pool Short 7\"",
@@ -1197,6 +1341,23 @@
     ],
     "layerOnly": null,
     "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "73784f37-f437-4f32-a55a-203c802b9885",
+    "brand": "Lululemon",
+    "name": "Pool Short 7\"",
+    "category": "Shorts",
+    "type": "Swim Shorts",
+    "color": "Red",
+    "seasons": [
+      "Summer"
+    ],
+    "occasions": [
+      "Active"
+    ],
+    "layerOnly": null,
+    "cvd": true,
     "last_worn": null
   },
   {
@@ -1436,26 +1597,6 @@
     "last_worn": null
   },
   {
-    "id": "57719f08-cb63-4519-94f1-6327fa218f4c",
-    "brand": "Lululemon",
-    "name": "Textured Knit Crewneck",
-    "category": "Sweaters & Layers",
-    "type": "Crewneck",
-    "color": "Heathered Blackened Pine",
-    "seasons": [
-      "Fall",
-      "Winter",
-      "Spring"
-    ],
-    "occasions": [
-      "Smart-Casual",
-      "Casual"
-    ],
-    "layerOnly": null,
-    "cvd": true,
-    "last_worn": null
-  },
-  {
     "id": "68b9ae35-13a1-48cf-8800-90948e445460",
     "brand": "Lululemon",
     "name": "Textured Knit Crewneck",
@@ -1473,6 +1614,26 @@
     ],
     "layerOnly": null,
     "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "57719f08-cb63-4519-94f1-6327fa218f4c",
+    "brand": "Lululemon",
+    "name": "Textured Knit Crewneck",
+    "category": "Sweaters & Layers",
+    "type": "Crewneck",
+    "color": "Heathered Blackened Pine",
+    "seasons": [
+      "Fall",
+      "Winter",
+      "Spring"
+    ],
+    "occasions": [
+      "Smart-Casual",
+      "Casual"
+    ],
+    "layerOnly": null,
+    "cvd": true,
     "last_worn": null
   },
   {
@@ -1534,25 +1695,6 @@
     "last_worn": null
   },
   {
-    "id": "4586a513-c514-43d4-9460-48a141070a78",
-    "brand": "Lululemon",
-    "name": "ABC Classic-Fit Trouser (VersaTwill)",
-    "category": "Trousers",
-    "type": "Trouser",
-    "color": "Black",
-    "seasons": [
-      "All"
-    ],
-    "occasions": [
-      "Smart-Casual",
-      "Work",
-      "Formal"
-    ],
-    "layerOnly": null,
-    "cvd": false,
-    "last_worn": null
-  },
-  {
     "id": "7ac20d2b-5304-46bc-8ed3-b47ea524c97c",
     "brand": "Lululemon",
     "name": "ABC Classic-Fit Trouser (VersaTwill)",
@@ -1567,6 +1709,25 @@
     "occasions": [
       "Smart-Casual",
       "Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "4586a513-c514-43d4-9460-48a141070a78",
+    "brand": "Lululemon",
+    "name": "ABC Classic-Fit Trouser (VersaTwill)",
+    "category": "Trousers",
+    "type": "Trouser",
+    "color": "Black",
+    "seasons": [
+      "All"
+    ],
+    "occasions": [
+      "Smart-Casual",
+      "Work",
+      "Formal"
     ],
     "layerOnly": null,
     "cvd": false,
