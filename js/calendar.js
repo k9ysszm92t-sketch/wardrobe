@@ -48,7 +48,7 @@ document.getElementById('cal-past').innerHTML =
 
 function renderAll() {
 const today = new Date();
-const todayStr = dateStr(today);
+const todayStr = localDateStr(today);
 
 // Past week: 7 days back from today's weekStart
 const pastStart  = weekStart(offsetDate(-7, today));
@@ -66,7 +66,7 @@ container.innerHTML = '';
 
 for (let i = 0; i < 7; i++) {
 const d    = offsetDate(i, startDate);
-const dStr = dateStr(d);
+const dStr = localDateStr(d);
 container.appendChild(makeDayCard(d, dStr, todayStr));
 }
 }
@@ -327,4 +327,11 @@ return String(str)
 .replace(/&/g, '&amp;')
 .replace(/</g, '&lt;')
 .replace(/>/g, '&gt;');
+}
+
+function localDateStr(d) {
+  const year  = d.getFullYear();
+  const month = String(d.getMonth() + 1).padStart(2, '0');
+  const day   = String(d.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
 }
