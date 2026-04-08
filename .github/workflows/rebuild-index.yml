@@ -52,5 +52,5 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/style-index.json
-          git diff --cached --quiet || git commit -m "chore: rebuild style index [skip ci]"
+          git diff --cached --quiet || git commit -m "chore: rebuild style index"
           git push
