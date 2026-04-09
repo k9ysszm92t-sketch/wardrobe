@@ -95,16 +95,16 @@ function makeCard(item) {
   // ── Visual: photo if available, swatch if not ──────────────────────────────
   let visualHtml;
   if (imageUrl) {
-    visualHtml = `
-      <div class="item-card-image-wrap">
-        <img class="item-card-image"
-             src="${esc(imageUrl)}"
-             alt="${esc(item.name)}"
-             loading="lazy"
-             onerror="this.parentElement.innerHTML='${swatchHtml(item.color, 'lg').replace(/'/g, "\\'")}'"
-        >
-      </div>`;
-  } else {
+  visualHtml = `
+    <div class="item-card-image-wrap">
+      <img class="item-card-image"
+           src="${esc(imageUrl)}"
+           alt="${esc(item.name)}"
+           loading="lazy"
+           data-fallback-color="${esc(item.color ?? '')}"
+      >
+    </div>`;
+} else {
     visualHtml = `
       <div class="item-card-swatch-wrap">
         ${swatchHtml(item.color, 'lg')}
@@ -128,6 +128,19 @@ function makeCard(item) {
       ${item.notes ? `<div class="item-card-notes">${esc(item.notes)}</div>` : ''}
     </div>`;
 
+const img = card.querySelector('.item-card-image');
+if (img) {
+  img.addEventListener('error', () => {
+    const wrap = img.closest('.item-card-image-wrap');
+    if (wrap) {
+      wrap.outerHTML = `<div class="item-card-swatch-wrap">
+        ${swatchHtml(item.color, 'lg')}
+        ${patternLabel ? `<span class="badge badge-muted pattern-label">${esc(patternLabel)}</span>` : ''}
+      </div>`;
+    }
+  });
+}
+  
   card.addEventListener('click', () => {
     import('./chat.js').then(({ sendQuickPrompt }) => {
       document.querySelector('[data-view="chat"]').click();
