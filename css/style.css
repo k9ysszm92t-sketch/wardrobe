@@ -414,13 +414,12 @@ select { cursor: pointer; }
 .item-card:hover { border-color: var(--border-md); }
 
 .item-card-image-wrap {
-  width: 100%;
-  aspect-ratio: 1 / 1;
+  width: calc(100% + 1.8rem);
+  height: 160px;
   border-radius: var(--radius-md) var(--radius-md) 0 0;
   overflow: hidden;
   background: var(--bg);
   margin: -0.9rem -0.9rem 0.75rem -0.9rem;
-  width: calc(100% + 1.8rem);
 }
 
 .item-card-image {
