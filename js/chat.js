@@ -54,15 +54,30 @@ async function handleSend(type = 'qa', extra = {}) {
   const msgEl = appendMessage('assistant', '', true);
 
   try {
-    if (resolvedType === 'log') {
-      // Log path: non-streaming, returns JSON
-      msgEl.textContent = 'Logging outfits...';
+    if (resolvedType === 'log' || resolvedType === 'log+qa') {
+  msgEl.textContent = 'Logging outfit...';
+  const rawResponse = await askClaude({
+    type: 'log',
+    userPrompt: displayText,
+    extra: context,
+  });
+  await handleLogResponse(rawResponse, msgEl);
 
-      const rawResponse = await askClaude({
-        type: 'log',
-        userPrompt: text,
-        extra: context,
-      });
+  // If there's also a question, follow up with a QA response
+  if (resolvedType === 'log+qa') {
+    const qaMsg = appendMessage('assistant', '', true);
+    await askClaude({
+      type: 'qa',
+      userPrompt: displayText,
+      extra: context,
+      onChunk: (_chunk, full) => {
+        qaMsg.textContent = full;
+        qaMsg.classList.add('streaming');
+        scrollToBottom();
+      },
+    });
+    qaMsg.classList.remove('streaming');
+  }
 
       await handleLogResponse(rawResponse, msgEl);
 
@@ -174,13 +189,28 @@ function findItem(items, name) {
 // Detect request type from prompt text
 function detectType(text) {
   const lower = text.toLowerCase();
-  const logKeywords  = ['wore', 'wearing', 'had on', 'log', 'record', 'put on',
-                        'dressed', 'i was in', 'i had', 'yesterday i', 'today i'];
-  const planKeywords = ['plan', 'next week', 'forecast', 'weather', 'schedule',
-                        'coming week', 'this week', 'calendar'];
 
-  if (logKeywords.some(kw  => lower.includes(kw))) return 'log';
-  if (planKeywords.some(kw => lower.includes(kw))) return 'plan';
+  const logKeywords  = ['wore', 'had on', 'log this', 'record this',
+                        'put on', 'dressed in', 'i was in'];
+  const planKeywords = ['plan', 'next week', 'forecast', 'weather',
+                        'schedule', 'coming week', 'this week', 'calendar'];
+  const qaKeywords   = ['should i', 'would', 'does this', 'what goes',
+                        'advice', 'suggest', 'recommend', 'tuck', 'match',
+                        'work with', 'pair', 'wear with', 'look good',
+                        'think about', 'opinion', '?'];
+
+  const isLog  = logKeywords.some(kw  => lower.includes(kw));
+  const isPlan = planKeywords.some(kw => lower.includes(kw));
+  const isQA   = qaKeywords.some(kw   => lower.includes(kw));
+
+  // If wearing/today is mentioned alongside a question — it's log + qa
+  const mentionsToday = lower.includes('today') || lower.includes('wearing') ||
+                        lower.includes('i have on') || lower.includes('i\'m in');
+
+  if (isPlan) return 'plan';
+  if (isLog)  return 'log';
+  if (mentionsToday && isQA) return 'log+qa';  // mixed intent
+  if (mentionsToday) return 'log';
   return 'qa';
 }
 
