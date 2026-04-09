@@ -415,7 +415,7 @@ select { cursor: pointer; }
 
 .item-card-image-wrap {
   width: calc(100% + 1.8rem);
-  height: 160px;
+  height: 40px;
   border-radius: var(--radius-md) var(--radius-md) 0 0;
   overflow: hidden;
   background: var(--bg);
