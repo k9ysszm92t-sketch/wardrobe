@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wardrobe</title>
   <link rel="stylesheet" href="css/style.css">
-  <link rel="manifest" href="manifest.json">
-  <meta name="apple-mobile-web-app-capable" content="yes">
 </head>
 <body>
 <div id="app">
@@ -100,10 +98,22 @@
         <div class="chat-window">
           <div class="chat-messages" id="chat-messages">
             <div class="chat-msg assistant">
-              Ask me anything about your wardrobe — outfit advice, what to buy, or whether two items work together.
+              Ask me anything about your wardrobe — outfit advice, what to buy, or whether two items work together. You can also upload a photo of an item to ask if it would match your wardrobe.
             </div>
           </div>
+          <!-- Photo preview (shows thumbnail when image is attached) -->
+          <div id="photo-preview" style="padding:0 0.75rem;"></div>
           <div class="chat-input-row">
+            <!-- Hidden file input — accepts camera or gallery on mobile -->
+            <input type="file" id="photo-input" accept="image/*" capture="environment"
+                   style="display:none;">
+            <button class="btn btn-sm" id="btn-photo-upload" title="Upload photo">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="3" width="14" height="10" rx="2"/>
+                <circle cx="8" cy="8" r="2.5"/>
+                <path d="M5.5 3L6.5 1.5h3L10.5 3"/>
+              </svg>
+            </button>
             <textarea id="chat-input" placeholder="Ask about your wardrobe…"></textarea>
             <button class="btn btn-primary" id="btn-chat-send">Send</button>
           </div>
@@ -124,6 +134,9 @@
           </button>
           <button class="quick-prompt" data-prompt="I need a smart-casual Friday outfit. What works from my wardrobe?">
             Friday outfit
+          </button>
+          <button class="quick-prompt" data-prompt="What are my current style preferences and what have you learned about my taste?">
+            My style profile
           </button>
         </div>
       </div>
