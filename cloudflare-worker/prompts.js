@@ -69,6 +69,7 @@ The user will provide a product URL or description. Extract:
 - fit (slim / regular / relaxed / oversized)
 - size (as shown on product page)
 - notes (one sentence: key details, material if notable)
+- image_url (the main product image URL — for lululemon.com URLs use the format https://images.lululemon.com/is/image/lululemon/PRODUCT_CODE where PRODUCT_CODE is the numeric code from the product page URL or page source; for other retailers use the direct image URL if identifiable, otherwise null)
 Then output ONLY a SQL INSERT statement for the items table with these columns.
 Use gen_random_uuid() for the id. Leave user_id as 'USER_ID_PLACEHOLDER'.
 Do not output anything other than the SQL.`;
