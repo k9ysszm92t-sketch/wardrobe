@@ -1251,25 +1251,6 @@
     "last_worn": null
   },
   {
-    "id": "811ff94d-c3e0-44a3-915f-9d60b934b527",
-    "brand": "Lululemon",
-    "name": "Commission Short 9\" (Warpstreme)",
-    "category": "Shorts",
-    "type": "Shorts",
-    "color": "Trench (tan/khaki)",
-    "seasons": [
-      "Spring",
-      "Summer"
-    ],
-    "occasions": [
-      "Casual",
-      "Smart-Casual"
-    ],
-    "layerOnly": null,
-    "cvd": false,
-    "last_worn": null
-  },
-  {
     "id": "61bed2e3-bcb7-46b0-a0e1-4331bf82f866",
     "brand": "Lululemon",
     "name": "Commission Short 9\" (Warpstreme)",
@@ -1295,6 +1276,25 @@
     "category": "Shorts",
     "type": "Shorts",
     "color": "Obsidian (dark navy)",
+    "seasons": [
+      "Spring",
+      "Summer"
+    ],
+    "occasions": [
+      "Casual",
+      "Smart-Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "811ff94d-c3e0-44a3-915f-9d60b934b527",
+    "brand": "Lululemon",
+    "name": "Commission Short 9\" (Warpstreme)",
+    "category": "Shorts",
+    "type": "Shorts",
+    "color": "Trench (tan/khaki)",
     "seasons": [
       "Spring",
       "Summer"
