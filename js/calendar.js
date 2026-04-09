@@ -1,7 +1,6 @@
 import { getWearLog, getWeatherForecast, askClaude, logOutfit, deleteWearLogEntry,
          groupByDate, dateStr, offsetDate, getColourMap } from './api.js';
 import CONFIG from './config.js';
-import { resolveHex, detectPatternLabel } from './wardrobe.js';
 
 let wearByDate  = {};   // { 'YYYY-MM-DD': [wearLog rows] }
 let weatherData = {};   // { 'YYYY-MM-DD': weatherObj }
@@ -363,4 +362,10 @@ function esc(str) {
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;');
+}
+
+function resolveHex(name) {
+  if (!name) return '#888888';
+  if (name.startsWith('#')) return name;
+  return colourMap[name] ?? colourMap[name.toLowerCase().trim()] ?? '#888888';
 }
