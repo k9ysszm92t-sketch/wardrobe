@@ -97,7 +97,7 @@ export async function getWearLog(daysBack = 14, daysAhead = 14) {
   const to   = dateStr(offsetDate(daysAhead));
   return sb.query(
     'wear_log',
-    `?select=id,date,item_id,items(id,name,brand,color,category,type)&date=gte.${from}&date=lte.${to}&order=date.asc`
+    `?select=id,date,item_id,items(id,name,brand,color,category,type,image_url)&date=gte.${from}&date=lte.${to}&order=date.asc`
   );
 }
 
@@ -141,6 +141,9 @@ export function invalidateStyleIndex() {
 
 // ─── Preferences (ai_analysis table) ─────────────────────────────────────────
 
+// Fixed UUID used as the preferences row identifier
+const PREFS_ITEM_ID = '00000000-0000-0000-0000-000000000001';
+
 let _prefsCache = null;
 
 export async function getPreferences() {
@@ -148,9 +151,9 @@ export async function getPreferences() {
   try {
     const rows = await sb.query(
       'ai_analysis',
-      `?analysis->>type=eq.user_preferences&select=id,analysis&limit=1`
+      `?item_id=eq.${PREFS_ITEM_ID}&select=id,analysis`
     );
-    if (rows.length > 0) {
+    if (rows.length > 0 && rows[0].analysis?.type === 'user_preferences') {
       _prefsCache = rows[0].analysis;
     } else {
       _prefsCache = defaultPreferences();
@@ -164,19 +167,25 @@ export async function getPreferences() {
 export async function savePreferences(prefs) {
   prefs.updated_at = new Date().toISOString();
   _prefsCache = prefs;
+
   try {
+    // Try update first, then insert if not found
     const existing = await sb.query(
       'ai_analysis',
-      `?analysis->>type=eq.user_preferences&select=id&limit=1`
+      `?item_id=eq.${PREFS_ITEM_ID}&select=id`
     );
+
     if (existing.length > 0) {
       await sb.update(
         'ai_analysis',
-        `?id=eq.${existing[0].id}`,
+        `?item_id=eq.${PREFS_ITEM_ID}`,
         { analysis: prefs }
       );
     } else {
-      await sb.insert('ai_analysis', { item_id: null, analysis: prefs });
+      await sb.insert('ai_analysis', {
+        item_id: PREFS_ITEM_ID,
+        analysis: prefs,
+      });
     }
   } catch (e) {
     console.error('Failed to save preferences:', e.message);
