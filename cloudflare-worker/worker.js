@@ -1,61 +1,65 @@
 import {
-  SYSTEM_QA, SYSTEM_PLAN, SYSTEM_INGEST, getSystemLog,
-  buildQAMessages, buildPlanMessages, buildIngestMessages, buildLogMessages,
+  SYSTEM_QA, SYSTEM_PLAN, SYSTEM_INGEST, SYSTEM_PHOTO, SYSTEM_MEMORY,
+  getSystemLog,
+  buildQAMessages, buildPlanMessages, buildIngestMessages,
+  buildPhotoMessages, buildLogMessages, buildMemoryMessages,
 } from './prompts.js';
 
 const ANTHROPIC_API = 'https://api.anthropic.com/v1/messages';
-const MODEL         = 'claude-haiku-4-5-20251001';  // cheapest, fast enough
+const MODEL         = 'claude-haiku-4-5-20251001';
 const MAX_TOKENS    = 1024;
-
-// Allowed origin — set to your GitHub Pages URL in production
-const ALLOWED_ORIGIN = '*'; // e.g. 'https://yourusername.github.io'
+const ALLOWED_ORIGIN = '*';
 
 export default {
   async fetch(request, env) {
-    // CORS preflight
-    if (request.method === 'OPTIONS') {
-      return corsResponse('', 204);
-    }
-
-    if (request.method !== 'POST') {
-      return corsResponse('Method not allowed', 405);
-    }
+    if (request.method === 'OPTIONS') return corsResponse('', 204);
+    if (request.method !== 'POST')    return corsResponse('Method not allowed', 405);
 
     let body;
-    try {
-      body = await request.json();
-    } catch {
-      return corsResponse('Invalid JSON', 400);
-    }
+    try { body = await request.json(); }
+    catch { return corsResponse('Invalid JSON', 400); }
 
-    const { type, userPrompt, styleIndex, wearHistory, weatherSummary } = body;
+    const {
+      type, userPrompt, styleIndex, preferences,
+      wearHistory, weatherSummary, imageBase64,
+    } = body;
 
-    if (!type || !userPrompt) {
-      return corsResponse('Missing type or userPrompt', 400);
-    }
+    if (!type || !userPrompt) return corsResponse('Missing type or userPrompt', 400);
 
-    // Select system prompt and build messages
-    let system, messages;
+    // ── Route to correct system prompt + message builder ──────────────────────
+    let system, messages, stream = true;
 
     if (type === 'plan') {
       system   = SYSTEM_PLAN;
-      messages = buildPlanMessages(userPrompt, styleIndex ?? [], wearHistory ?? '', weatherSummary ?? '');
-    } else if (type === 'ingest') {
-      system   = SYSTEM_INGEST;
-      messages = buildIngestMessages(userPrompt, styleIndex ?? []);
+      messages = buildPlanMessages(userPrompt, styleIndex ?? [], preferences, wearHistory ?? '', weatherSummary ?? '');
+
+    } else if (type === 'photo') {
+      if (!imageBase64) return corsResponse('Missing imageBase64 for photo request', 400);
+      system   = SYSTEM_PHOTO;
+      messages = buildPhotoMessages(userPrompt, styleIndex ?? [], preferences, imageBase64);
+
     } else if (type === 'log') {
       system   = getSystemLog();
       messages = buildLogMessages(userPrompt, styleIndex ?? []);
+      stream   = false;
+
+    } else if (type === 'memory') {
+      // Internal call: extract preferences from a response
+      const { assistantResponse, currentPrefs } = body;
+      system   = SYSTEM_MEMORY;
+      messages = buildMemoryMessages(assistantResponse, currentPrefs);
+      stream   = false;
+
+    } else if (type === 'ingest') {
+      system   = SYSTEM_INGEST;
+      messages = buildIngestMessages(userPrompt, styleIndex ?? []);
+
     } else {
-      // 'qa' and anything else
       system   = SYSTEM_QA;
-      messages = buildQAMessages(userPrompt, styleIndex ?? []);
+      messages = buildQAMessages(userPrompt, styleIndex ?? [], preferences);
     }
 
-    // Log requests return JSON — don't stream, return full response
-    const streamMode = type !== 'log';
-
-    // Call Anthropic API
+    // ── Call Anthropic ────────────────────────────────────────────────────────
     const anthropicReq = await fetch(ANTHROPIC_API, {
       method: 'POST',
       headers: {
@@ -64,11 +68,11 @@ export default {
         'anthropic-version': '2023-06-01',
       },
       body: JSON.stringify({
-        model:      MODEL,
+        model: MODEL,
         max_tokens: MAX_TOKENS,
         system,
         messages,
-        stream: streamMode,
+        stream,
       }),
     });
 
@@ -77,20 +81,20 @@ export default {
       return corsResponse(`Anthropic error: ${err}`, 502);
     }
 
-    // Non-streaming: extract text and return as plain JSON string
-    if (!streamMode) {
+    // Non-streaming: return plain text
+    if (!stream) {
       const data = await anthropicReq.json();
       const text = data.content?.map(b => b.text ?? '').join('') ?? '';
       return new Response(text, {
         status: 200,
         headers: {
-          'Content-Type':                'application/json',
+          'Content-Type':                'text/plain',
           'Access-Control-Allow-Origin': ALLOWED_ORIGIN,
         },
       });
     }
 
-    // Streaming: pass through directly
+    // Streaming: pass through SSE
     return new Response(anthropicReq.body, {
       status: 200,
       headers: {
@@ -103,14 +107,12 @@ export default {
   },
 };
 
-// ─── Helpers ──────────────────────────────────────────────────────────────────
-
 function corsResponse(body, status = 200) {
   return new Response(body, {
     status,
     headers: {
-      'Content-Type':                'text/plain',
-      'Access-Control-Allow-Origin': ALLOWED_ORIGIN,
+      'Content-Type':                 'text/plain',
+      'Access-Control-Allow-Origin':  ALLOWED_ORIGIN,
       'Access-Control-Allow-Methods': 'POST, OPTIONS',
       'Access-Control-Allow-Headers': 'Content-Type',
     },
