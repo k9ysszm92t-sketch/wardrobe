@@ -119,14 +119,23 @@ The JSON must have exactly these fields:
 
 // ─── Context assemblers ───────────────────────────────────────────────────────
 
-export function buildQAMessages(userPrompt, styleIndex, preferences) {
-  return [{
-    role: 'user',
-    content:
-      formatPreferences(preferences) +
-      `STYLE INDEX:\n${formatStyleIndex(styleIndex)}\n\n` +
-      `QUESTION: ${userPrompt}`,
-  }];
+export function buildQAMessages(userPrompt, styleIndex, preferences, history = []) {
+  const context =
+    formatPreferences(preferences) +
+    `STYLE INDEX:\n${formatStyleIndex(styleIndex)}\n\n`;
+
+  if (history.length === 0) {
+    return [{ role: 'user', content: context + `QUESTION: ${userPrompt}` }];
+  }
+
+  // Inject wardrobe context into the first user message, then replay history,
+  // then append the new user prompt as the final turn
+  const [firstUser, ...rest] = history;
+  return [
+    { role: 'user', content: context + firstUser.content },
+    ...rest,
+    { role: 'user', content: userPrompt },
+  ].filter(m => m.content?.trim());
 }
 
 export function buildPhotoMessages(userPrompt, styleIndex, preferences, imageBase64) {
@@ -152,23 +161,38 @@ export function buildPhotoMessages(userPrompt, styleIndex, preferences, imageBas
   }];
 }
 
-export function buildPlanMessages(userPrompt, styleIndex, preferences, wearHistory, weatherSummary) {
-  return [{
-    role: 'user',
-    content:
-      formatPreferences(preferences) +
-      `STYLE INDEX:\n${formatStyleIndex(styleIndex)}\n\n` +
-      `WEAR HISTORY (last 14 days):\n${wearHistory || 'No history available.'}\n\n` +
-      `WEATHER FORECAST:\n${weatherSummary || 'No forecast available.'}\n\n` +
-      `REQUEST: ${userPrompt}`,
-  }];
+export function buildPlanMessages(userPrompt, styleIndex, preferences, wearHistory, weatherSummary, history = []) {
+  const context =
+    formatPreferences(preferences) +
+    `STYLE INDEX:\n${formatStyleIndex(styleIndex)}\n\n` +
+    `WEAR HISTORY (last 14 days):\n${wearHistory || 'No history available.'}\n\n` +
+    `WEATHER FORECAST:\n${weatherSummary || 'No forecast available.'}\n\n`;
+
+  if (history.length === 0) {
+    return [{ role: 'user', content: context + `REQUEST: ${userPrompt}` }];
+  }
+
+  const [firstUser, ...rest] = history;
+  return [
+    { role: 'user', content: context + firstUser.content },
+    ...rest,
+    { role: 'user', content: userPrompt },
+  ].filter(m => m.content?.trim());
 }
 
-export function buildLogMessages(userPrompt, styleIndex) {
-  return [{
-    role: 'user',
-    content: `STYLE INDEX:\n${formatStyleIndex(styleIndex)}\n\nLOG REQUEST: ${userPrompt}`,
-  }];
+export function buildLogMessages(userPrompt, styleIndex, history = []) {
+  const context = `STYLE INDEX:\n${formatStyleIndex(styleIndex)}\n\n`;
+
+  if (history.length === 0) {
+    return [{ role: 'user', content: context + `LOG REQUEST: ${userPrompt}` }];
+  }
+
+  const [firstUser, ...rest] = history;
+  return [
+    { role: 'user', content: context + firstUser.content },
+    ...rest,
+    { role: 'user', content: userPrompt },
+  ].filter(m => m.content?.trim());
 }
 
 export function buildIngestMessages(userPrompt, styleIndex) {
