@@ -17,7 +17,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "e7d70510-f679-4a11-9f5e-cd9b351f24b9",
@@ -37,7 +38,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "1392ade1-a310-40ca-bd03-d67a43c56cec",
@@ -57,7 +59,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "d64fc0a8-fcd1-4631-b2bf-ed0ed1f098d6",
@@ -79,7 +82,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "cc7717b8-eb6c-4e03-be98-f907f06788cc",
@@ -98,7 +102,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "c455eb92-6f3c-454f-a1cb-e8ecc06ce34a",
@@ -115,7 +120,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": null
   },
   {
     "id": "17e4d3df-47d7-4f95-968e-ee60708fff27",
@@ -132,7 +138,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": null
   },
   {
     "id": "f21d42c3-184d-4ac8-989d-9670dca051bf",
@@ -151,7 +158,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "b030844c-bc2e-415b-be44-332184ffce88",
@@ -171,7 +179,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "aededb50-e33a-4732-8c9e-6abd2b05f685",
@@ -188,7 +197,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "cool"
   },
   {
     "id": "6239ed6e-0572-4202-8e33-7533ba9fd996",
@@ -206,7 +216,8 @@
     ],
     "layerOnly": true,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "b0ba31a2-744c-46dc-b553-873749179d7c",
@@ -224,7 +235,8 @@
     ],
     "layerOnly": true,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "warm"
   },
   {
     "id": "7cd67e85-634d-4a4b-976d-434f456df3a5",
@@ -241,7 +253,8 @@
     ],
     "layerOnly": true,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "21473a29-f981-4d73-8c42-b4ce2ab862c9",
@@ -259,7 +272,8 @@
     ],
     "layerOnly": null,
     "cvd": true,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "cool"
   },
   {
     "id": "a8dedea9-861d-4a8f-984e-ff526d12d923",
@@ -278,7 +292,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "000416d2-5ecc-4a9b-a3db-199135bf7f65",
@@ -296,7 +311,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": null
   },
   {
     "id": "53cbdc9e-8c23-48f4-8a82-2118bd638ded",
@@ -313,7 +329,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "cool"
   },
   {
     "id": "be15b822-2cd0-4a50-ae4a-0c1fbd7b8cdc",
@@ -331,7 +348,8 @@
     ],
     "layerOnly": null,
     "cvd": true,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "cool"
   },
   {
     "id": "c0077550-b8e3-4bc9-97c7-061c3b2fa825",
@@ -349,7 +367,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "cool"
   },
   {
     "id": "928a1194-94fe-447f-974a-c20a513b1cfa",
@@ -367,7 +386,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "cool"
   },
   {
     "id": "31aee7ef-2653-4d26-89a4-8d6ab010101d",
@@ -387,7 +407,8 @@
     ],
     "layerOnly": null,
     "cvd": true,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "f88afd25-5910-4b9c-8f9d-374f17627d40",
@@ -407,7 +428,8 @@
     ],
     "layerOnly": false,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "7279e369-9223-4a98-9231-e0806d5a9308",
@@ -427,7 +449,8 @@
     ],
     "layerOnly": null,
     "cvd": true,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "b284edc5-8e8c-4439-b70c-a121be8b0972",
@@ -447,7 +470,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "04c93b23-25ca-4630-bebb-de99fd9d988e",
@@ -465,7 +489,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "e868aab8-f8ad-44df-85ea-a6c1193443a5",
@@ -482,7 +507,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "2782ada5-41c3-49c0-a97f-cce58b129fb0",
@@ -501,7 +527,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "60113497-4a7a-4866-b8ec-593330927b40",
@@ -518,7 +545,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "addc593e-334d-4079-9937-9f9cfb200413",
@@ -538,7 +566,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "8a46f85e-d7c7-4e4c-be9d-270f276dcca6",
@@ -557,7 +586,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "57a5f982-4469-4517-a8bb-88c0ee42a059",
@@ -575,7 +605,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "cool"
   },
   {
     "id": "33db5aa2-ebeb-4cd3-9d8b-348ba28ca2a7",
@@ -593,7 +624,8 @@
     ],
     "layerOnly": null,
     "cvd": true,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "warm"
   },
   {
     "id": "73dfae7c-be25-426f-b3ba-070ec8e0f46f",
@@ -611,7 +643,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "fe01a246-b975-472c-9893-ad7a43e86ca8",
@@ -629,7 +662,8 @@
     ],
     "layerOnly": null,
     "cvd": true,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "warm"
   },
   {
     "id": "6514fbea-c023-4aec-836a-47bcbd240fa1",
@@ -647,7 +681,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "cool"
   },
   {
     "id": "3072d373-7fee-44cf-8d70-6d9d5926cfd6",
@@ -665,7 +700,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "39cd5824-fc19-4796-b61e-1e62715ad5ca",
@@ -683,7 +719,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "90f3670f-c1dc-4efd-bda4-95ebd80a23ab",
@@ -701,7 +738,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "b05e4167-03f1-48f9-a4a1-4a74c217b662",
@@ -719,7 +757,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "86d0294f-8b25-43f8-8018-a7554479c2d6",
@@ -738,7 +777,8 @@
     ],
     "layerOnly": true,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "cool"
   },
   {
     "id": "62ef8ec5-7b46-4a36-af8d-9e299907655d",
@@ -757,7 +797,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "warm-neutral"
   },
   {
     "id": "b27b5b1f-51f5-49ec-aab8-6f48c93092bd",
@@ -778,7 +819,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": null
   },
   {
     "id": "cc81d74b-deb5-41e1-af25-47fb24c574ec",
@@ -797,7 +839,8 @@
     ],
     "layerOnly": true,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": null
   },
   {
     "id": "18c6da20-eaa6-46e0-a378-71bfeda3316a",
@@ -817,7 +860,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "6ead44d1-163b-4d53-88ee-49f663829a6a",
@@ -837,7 +881,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "72e0a33d-0e9f-47f7-83eb-14e64b019730",
@@ -858,7 +903,8 @@
     ],
     "layerOnly": null,
     "cvd": true,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "cool"
   },
   {
     "id": "e3109ad6-497d-4785-be64-e3e827ac4f1f",
@@ -878,7 +924,8 @@
     ],
     "layerOnly": null,
     "cvd": true,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "cool-neutral"
   },
   {
     "id": "f013e5b4-3571-4266-afa4-eabc6e5ff7f0",
@@ -898,7 +945,8 @@
     ],
     "layerOnly": null,
     "cvd": true,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": null
   },
   {
     "id": "63c4e587-e1af-4140-a100-cb671f78e6c2",
@@ -918,7 +966,8 @@
     ],
     "layerOnly": true,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "826f6673-db88-4735-9e8b-7633b0c07222",
@@ -938,27 +987,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
-  },
-  {
-    "id": "5cf66ada-d057-4cf8-91b4-932891f5e0f7",
-    "brand": "Lululemon",
-    "name": "Airing Easy Short-Sleeve Shirt",
-    "category": "Performance Tees",
-    "type": "Performance Tee",
-    "color": "Black",
-    "seasons": [
-      "Spring",
-      "Summer"
-    ],
-    "occasions": [
-      "Active",
-      "Casual",
-      "Work"
-    ],
-    "layerOnly": null,
-    "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "cool"
   },
   {
     "id": "f04475e4-cc69-4a69-99bf-c814115fc6df",
@@ -978,7 +1008,29 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "cool"
+  },
+  {
+    "id": "5cf66ada-d057-4cf8-91b4-932891f5e0f7",
+    "brand": "Lululemon",
+    "name": "Airing Easy Short-Sleeve Shirt",
+    "category": "Performance Tees",
+    "type": "Performance Tee",
+    "color": "Black",
+    "seasons": [
+      "Spring",
+      "Summer"
+    ],
+    "occasions": [
+      "Active",
+      "Casual",
+      "Work"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "15cc20c6-3726-4cc4-bc60-f24934604a99",
@@ -998,7 +1050,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "1cd44d9b-e1db-4ba0-887e-57a9705e8901",
@@ -1016,7 +1069,8 @@
     ],
     "layerOnly": true,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": null
   },
   {
     "id": "694e8a90-dfeb-478f-aca1-4430c3a647cc",
@@ -1036,7 +1090,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "cool"
   },
   {
     "id": "22a51df4-200f-4e9d-b3b6-6781cc51aa46",
@@ -1056,7 +1111,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "65dc4759-a6fc-4ae7-934f-2bfd7e883c9e",
@@ -1076,7 +1132,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "warm-neutral"
   },
   {
     "id": "013a2a4d-b99a-4981-9a2d-f560ab8030c1",
@@ -1095,7 +1152,8 @@
     ],
     "layerOnly": false,
     "cvd": true,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "cool"
   },
   {
     "id": "7fc88153-748d-4611-9a42-08d68ea90e3d",
@@ -1115,7 +1173,8 @@
     ],
     "layerOnly": false,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "warm"
   },
   {
     "id": "0aee37b4-c15b-464b-9a96-c9f46f06b1e5",
@@ -1134,7 +1193,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": null
   },
   {
     "id": "ab2ee98f-2afa-45e9-8c8f-6216ac027edf",
@@ -1153,7 +1213,8 @@
     ],
     "layerOnly": null,
     "cvd": true,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": null
   },
   {
     "id": "3188a834-f9b5-4c34-92d9-b7233aa3baaa",
@@ -1173,7 +1234,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "cool"
   },
   {
     "id": "b3281e9a-6c7b-41d2-a0fc-68f02fca6810",
@@ -1193,7 +1255,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": null
   },
   {
     "id": "a69978fd-8484-4b4c-8cb9-f046d210c9a6",
@@ -1213,7 +1276,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "a7d23845-0eed-4100-bf5c-553a386fe426",
@@ -1232,7 +1296,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "811ff94d-c3e0-44a3-915f-9d60b934b527",
@@ -1251,7 +1316,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": null
   },
   {
     "id": "93bbac6a-9425-4589-88fb-160dc092790a",
@@ -1270,7 +1336,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "cool"
   },
   {
     "id": "61bed2e3-bcb7-46b0-a0e1-4331bf82f866",
@@ -1289,7 +1356,8 @@
     ],
     "layerOnly": null,
     "cvd": true,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "664a2933-ee5b-4c81-9110-a902ac494ec1",
@@ -1307,7 +1375,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "warm-neutral"
   },
   {
     "id": "d976dcde-fc59-46a5-a6a1-fa6abf907161",
@@ -1325,7 +1394,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "73784f37-f437-4f32-a55a-203c802b9885",
@@ -1342,7 +1412,8 @@
     ],
     "layerOnly": null,
     "cvd": true,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "warm"
   },
   {
     "id": "3ff11b1d-400d-468a-8b77-630c976dd61a",
@@ -1359,7 +1430,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "a13d6de7-b83d-49dc-9c1f-9dfbb17f7819",
@@ -1376,7 +1448,8 @@
     ],
     "layerOnly": null,
     "cvd": true,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "dec1af26-d7a1-4bea-9d33-5ae0ca2fea2f",
@@ -1394,7 +1467,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": null
   },
   {
     "id": "3f1cb057-6c72-409f-9ae5-fc51c1ee7d45",
@@ -1412,7 +1486,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "2bcb4f30-3ca2-4b09-93b5-7679ed4a0172",
@@ -1430,7 +1505,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "6c913e13-07a3-4ae8-bfe4-a37b96b59a82",
@@ -1448,7 +1524,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": null
   },
   {
     "id": "afbec525-2308-4bc1-aeb0-fe53d927a43f",
@@ -1466,7 +1543,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "warm-neutral"
   },
   {
     "id": "c54a427e-3303-4d3f-980a-a7543e3588a2",
@@ -1484,7 +1562,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "warm"
   },
   {
     "id": "61cee5c7-d7b8-4a79-9c1d-bc89fff67ff1",
@@ -1502,7 +1581,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "warm-neutral"
   },
   {
     "id": "ef647bc1-1d1e-4290-96c5-b718ae9e00e1",
@@ -1520,7 +1600,8 @@
     ],
     "layerOnly": null,
     "cvd": true,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "cool"
   },
   {
     "id": "3e4361a6-eb90-46cb-aa4e-4c14a76c42cb",
@@ -1537,7 +1618,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "warm-neutral"
   },
   {
     "id": "e4edd458-db61-42e2-8ae5-a3c371aa913a",
@@ -1556,7 +1638,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": null
   },
   {
     "id": "c928651c-32b6-4440-9d6d-ffcf649ee38d",
@@ -1576,7 +1659,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": null
   },
   {
     "id": "5fa5c357-622e-4f59-8048-b7887838f0b2",
@@ -1595,7 +1679,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "warm-neutral"
   },
   {
     "id": "57719f08-cb63-4519-94f1-6327fa218f4c",
@@ -1615,7 +1700,8 @@
     ],
     "layerOnly": null,
     "cvd": true,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "cool-neutral"
   },
   {
     "id": "68b9ae35-13a1-48cf-8800-90948e445460",
@@ -1635,7 +1721,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "1450a976-b732-455e-bfd1-a4b6107edb04",
@@ -1655,7 +1742,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "3012bf76-aec3-41b0-95bc-af27ded50f59",
@@ -1674,7 +1762,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "6ee7d82b-7590-48fe-b7ff-86126fe5a3fd",
@@ -1693,7 +1782,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "fa1f5d5e-ee57-454c-9772-4b818319bdbb",
@@ -1712,7 +1802,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "7ac20d2b-5304-46bc-8ed3-b47ea524c97c",
@@ -1732,7 +1823,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": null
   },
   {
     "id": "4586a513-c514-43d4-9460-48a141070a78",
@@ -1751,7 +1843,8 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "5070d7be-1427-4803-a5a2-8982d9e92edd",
@@ -1771,7 +1864,8 @@
     ],
     "layerOnly": null,
     "cvd": true,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "b21f2cc6-22cc-484b-9f6e-4d20cc27fa77",
@@ -1790,6 +1884,7 @@
     ],
     "layerOnly": null,
     "cvd": false,
-    "last_worn": null
+    "last_worn": null,
+    "tonal": "neutral"
   }
 ]
