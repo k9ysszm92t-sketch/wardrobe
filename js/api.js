@@ -81,7 +81,7 @@ const sb = {
 export async function getItems() {
   return sb.query(
     'items',
-    '?select=id,brand,name,category,type,color,fit,size,seasons,occasions,layerOnly,cvd,cvdNote,notes,image_url,last_worn&order=category.asc,brand.asc,name.asc'
+    '?select=id,brand,name,category,type,color,fit,size,seasons,occasions,layerOnly,cvd,cvdNote,notes,image_url,last_worn&order=name.asc,brand.asc'
   );
 }
 
@@ -221,6 +221,7 @@ export async function askClaude({ type, userPrompt, extra = {}, onChunk, imageBa
     styleIndex,
     preferences,
     imageBase64,
+    conversationHistory: extra.conversationHistory ?? [],
     ...extra,
   };
 
