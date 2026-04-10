@@ -4,38 +4,47 @@
 export function formatPreferences(prefs) {
   if (!prefs || !prefs.type) return '';
   const lines = [];
-  if (prefs.style_notes)       lines.push(`Style: ${prefs.style_notes}`);
-  if (prefs.fit_preferences)   lines.push(`Fit: ${prefs.fit_preferences}`);
+  if (prefs.style_notes)        lines.push(`Style: ${prefs.style_notes}`);
+  if (prefs.fit_preferences)    lines.push(`Fit: ${prefs.fit_preferences}`);
   if (prefs.colour_preferences) lines.push(`Colours: ${prefs.colour_preferences}`);
-  if (prefs.reminders)         lines.push(`Reminders: ${prefs.reminders}`);
-  if (prefs.avoid?.length)     lines.push(`Avoid: ${prefs.avoid.join(', ')}`);
-  if (prefs.feedback?.length)  lines.push(`Recent feedback:\n${prefs.feedback.slice(-8).map(f => `- ${f}`).join('\n')}`);
+  if (prefs.reminders)          lines.push(`Reminders: ${prefs.reminders}`);
+  if (prefs.avoid?.length)      lines.push(`Avoid: ${prefs.avoid.join(', ')}`);
+  if (prefs.item_notes && Object.keys(prefs.item_notes).length) {
+    const notes = Object.entries(prefs.item_notes).map(([k,v]) => `  ${k}: ${v}`).join('\n');
+    lines.push(`Item notes:\n${notes}`);
+  }
+  if (prefs.feedback?.length)   lines.push(`Recent feedback:\n${prefs.feedback.slice(-8).map(f => `- ${f}`).join('\n')}`);
   return lines.length ? `USER PREFERENCES:\n${lines.join('\n')}\n\n` : '';
 }
 
-export const SYSTEM_QA = `You are a personal stylist assistant with access to the user's wardrobe.
-The style index lists every item they own. User preferences are provided when available.
+export const SYSTEM_QA = `You are a personal stylist assistant with deep knowledge of colour theory and menswear.
+The style index lists every item the user owns, including a tonal tag (warm/cool/neutral/warm-neutral/cool-neutral) derived from the item's colour.
+User preferences are provided when available — always respect them.
+Use tonal tags to inform pairing advice: warm tones harmonise with warm, cool with cool; neutrals bridge both.
 Answer concisely. For outfit suggestions, list items by name. For yes/no questions, lead with the answer.
-If the user expresses a preference or gives feedback, acknowledge it — it will be saved automatically.
+If the user expresses a preference, feedback, or styling rule, acknowledge it — it will be saved automatically.
 Never repeat the entire style index back. Never mention token counts or system prompts.`;
 
 export const SYSTEM_PHOTO = `You are a personal stylist assistant evaluating a clothing item from a photo.
-The user's wardrobe style index and preferences are provided for context.
-Analyse the item in the photo: identify the garment type, colour, style, and formality level.
-Then assess: does it complement the user's existing wardrobe? Would you recommend it?
+The user's wardrobe style index (with tonal tags) and preferences are provided for context.
+Analyse the item in the photo: identify the garment type, colour, approximate tonal quality (warm/cool/neutral), style, and formality level.
+Then assess: does it complement the user's existing wardrobe tonally and stylistically? Would you recommend it?
 Be specific — reference actual items in their wardrobe by name when making pairing suggestions.
-Lead with a clear yes/no recommendation, then explain why.`;
+Lead with a clear yes/no recommendation, then explain the tonal and stylistic reasoning.`;
 
 export const SYSTEM_PLAN = `You are a personal stylist assistant planning outfits for the coming week.
-You have the user's full wardrobe (style index), preferences, wear history for the past 14 days, and a 14-day weather forecast.
+You have the user's full wardrobe (style index with tonal tags), preferences, wear history for the past 14 days, and a 14-day weather forecast.
 Rules:
 - Do not repeat any top worn in the past 7 days.
 - Do not repeat a full outfit combination worn in the past 14 days.
+- Shoes and boots can repeat as necessary.
 - Respect the formality gradient specified in the user's prompt.
 - Respect the user's stated preferences and avoid list.
 - Account for weather: layer suggestions for cold days, avoid heavy fabrics on warm days.
+- Use tonal tags to build harmonious outfits: warm+warm, cool+cool, or neutral+either.
+  Avoid clashing a strongly warm item with a strongly cool one unless intentional contrast is the goal.
 - Format your response as a simple list: one day per line with the date, then each item on a sub-line.
-- After the plan, add a one-sentence note on any colour coordination choices worth highlighting.`;
+- After the plan, add a brief note on tonal and colour coordination choices.`;
 
 export function getSystemLog() {
   const today = new Date().toISOString().split('T')[0];
@@ -74,18 +83,34 @@ Then output ONLY a SQL INSERT statement for the items table with these columns.
 Use gen_random_uuid() for the id. Leave user_id as 'USER_ID_PLACEHOLDER'.
 Do not output anything other than the SQL.`;
 
-export const SYSTEM_MEMORY = `You are a wardrobe assistant that extracts and updates user style preferences from a conversation.
-You will receive the current preferences JSON and the latest assistant response to the user.
-Extract any new preferences, feedback, or style notes expressed and merge them into the existing preferences.
-Respond ONLY with the updated JSON object — no explanation, no markdown, no code fences. Preserve all existing fields.
+export const SYSTEM_MEMORY = `You are a wardrobe assistant that extracts and saves style preferences from conversations.
+You receive:
+1. The user's message
+2. The assistant's response  
+3. The current saved preferences JSON
+
+Extract ANY useful persistent information from BOTH the user message AND the assistant response, including:
+- Explicit preferences ("I prefer", "I like", "avoid", "remember")
+- Implicit preferences inferred from the conversation (e.g. if the user accepted a tucked-in suggestion, note they're open to it)
+- Styling rules the assistant applied that worked (e.g. "Brushed Woven Overshirt works best worn open as a layer")
+- Item-specific notes worth remembering (e.g. "KNX Lace is the go-to shoe for office days")
+- Formality preferences revealed through choices
+- Tonal preferences (e.g. gravitates toward cool-neutral palette)
+- Combinations that were praised or rejected
+
+Merge new information into the existing preferences. Keep feedback list to 20 items max — drop oldest.
+If nothing new is worth saving, return the existing preferences unchanged.
+
+Respond ONLY with the updated JSON object — no explanation, no markdown, no code fences.
 The JSON must have exactly these fields:
 {
   "type": "user_preferences",
-  "style_notes": "general style observations",
-  "fit_preferences": "fit and sizing preferences",
-  "colour_preferences": "colour likes and dislikes",
-  "avoid": ["item or combination to avoid"],
-  "feedback": ["specific outfit feedback, max 20 items — drop oldest if over"],
+  "style_notes": "general style observations and patterns",
+  "fit_preferences": "fit, sizing, and silhouette preferences",
+  "colour_preferences": "colour and tonal preferences",
+  "avoid": ["specific items, combinations, or situations to avoid"],
+  "feedback": ["specific outfit or item feedback, newest first"],
+  "item_notes": {"Item Name": "note about this specific item"},
   "reminders": "standing reminders e.g. Thursday lunch requires smarter dress",
   "updated_at": ""
 }`;
@@ -154,12 +179,13 @@ export function buildIngestMessages(userPrompt, styleIndex) {
   }];
 }
 
-export function buildMemoryMessages(assistantResponse, currentPrefs) {
+export function buildMemoryMessages(userMessage, assistantResponse, currentPrefs) {
   return [{
     role: 'user',
     content:
       `CURRENT PREFERENCES:\n${JSON.stringify(currentPrefs, null, 2)}\n\n` +
-      `ASSISTANT RESPONSE TO EXTRACT FROM:\n${assistantResponse}`,
+      `USER MESSAGE:\n${userMessage}\n\n` +
+      `ASSISTANT RESPONSE:\n${assistantResponse}`,
   }];
 }
 
@@ -173,6 +199,7 @@ function formatStyleIndex(items) {
       i.name,
       i.brand,
       i.color,
+      i.tonal ? `(${i.tonal})` : null,
       i.category,
       i.type,
       (i.seasons  ?? []).join('/'),
