@@ -5,9 +5,10 @@ import {
   buildPhotoMessages, buildLogMessages, buildMemoryMessages,
 } from './prompts.js';
 
-const ANTHROPIC_API = 'https://api.anthropic.com/v1/messages';
-const MODEL         = 'claude-sonnet-4-5-20250929';
-const MAX_TOKENS    = 1024;
+const ANTHROPIC_API  = 'https://api.anthropic.com/v1/messages';
+const MODEL          = 'claude-sonnet-4-6';
+const MAX_TOKENS     = 1024;
+const MEMORY_TOKENS  = 512;   // memory extraction needs less headroom
 const ALLOWED_ORIGIN = '*';
 
 export default {
@@ -44,10 +45,9 @@ export default {
       stream   = false;
 
     } else if (type === 'memory') {
-      // Internal call: extract preferences from a response
-      const { assistantResponse, currentPrefs } = body;
+      const { userMessage, assistantResponse, currentPrefs } = body;
       system   = SYSTEM_MEMORY;
-      messages = buildMemoryMessages(assistantResponse, currentPrefs);
+      messages = buildMemoryMessages(userMessage ?? '', assistantResponse ?? '', currentPrefs ?? {});
       stream   = false;
 
     } else if (type === 'ingest') {
@@ -68,8 +68,8 @@ export default {
         'anthropic-version': '2023-06-01',
       },
       body: JSON.stringify({
-        model: MODEL,
-        max_tokens: MAX_TOKENS,
+        model:      MODEL,
+        max_tokens: type === 'memory' ? MEMORY_TOKENS : MAX_TOKENS,
         system,
         messages,
         stream,
