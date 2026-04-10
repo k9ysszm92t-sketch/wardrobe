@@ -1,14 +1,17 @@
 import { askClaude, getWearLog, getWeatherForecast, getItems, getPreferences,
          savePreferences, logOutfit, groupByDate } from './api.js';
 
-const messagesEl = document.getElementById('chat-messages');
-const inputEl    = document.getElementById('chat-input');
-const sendBtn    = document.getElementById('btn-chat-send');
-const photoBtn   = document.getElementById('btn-photo-upload');
-const photoInput = document.getElementById('photo-input');
+const messagesEl   = document.getElementById('chat-messages');
+const inputEl      = document.getElementById('chat-input');
+const sendBtn      = document.getElementById('btn-chat-send');
+const photoBtn     = document.getElementById('btn-photo-upload');
+const photoInput   = document.getElementById('photo-input');
 const photoPreview = document.getElementById('photo-preview');
 
-let pendingImageBase64 = null;
+let pendingImageBase64  = null;
+let conversationHistory = [];  // { role: 'user'|'assistant', content: string }[]
+
+// ─── Init ─────────────────────────────────────────────────────────────────────
 
 export function initChat() {
   sendBtn.addEventListener('click', () => handleSend());
@@ -20,7 +23,6 @@ export function initChat() {
     }
   });
 
-  // Photo upload button
   photoBtn.addEventListener('click', () => photoInput.click());
 
   photoInput.addEventListener('change', async () => {
@@ -45,6 +47,9 @@ export function initChat() {
   document.querySelectorAll('.quick-prompt').forEach(btn => {
     btn.addEventListener('click', () => sendQuickPrompt(btn.dataset.prompt));
   });
+
+  document.getElementById('btn-new-conversation')
+    ?.addEventListener('click', resetConversation);
 }
 
 export function sendQuickPrompt(text, type = 'qa', extra = {}) {
@@ -52,8 +57,19 @@ export function sendQuickPrompt(text, type = 'qa', extra = {}) {
   handleSend(type, extra);
 }
 
+function resetConversation() {
+  conversationHistory = [];
+  messagesEl.innerHTML = `<div class="chat-msg assistant">
+    Ask me anything about your wardrobe — outfit advice, what to buy, or whether two items
+    work together. You can also upload a photo of an item to ask if it would match your wardrobe.
+  </div>`;
+  inputEl.focus();
+}
+
+// ─── Send ─────────────────────────────────────────────────────────────────────
+
 async function handleSend(type = 'qa', extra = {}) {
-  const text  = inputEl.value.trim();
+  const text     = inputEl.value.trim();
   const hasImage = !!pendingImageBase64;
 
   if (!text && !hasImage) return;
@@ -62,17 +78,15 @@ async function handleSend(type = 'qa', extra = {}) {
   inputEl.value = '';
   setInputDisabled(true);
 
-  // Show user message with thumbnail if photo attached
   appendUserMessage(displayText, pendingImageBase64);
 
-  // Determine type
   let resolvedType = type !== 'qa' ? type : detectType(text);
   if (hasImage) resolvedType = 'photo';
 
   const imageBase64 = pendingImageBase64;
   clearPhoto();
 
-  // Fetch plan context if needed
+  // Fetch weather + wear history for plan requests
   let context = { ...extra };
   if (resolvedType === 'plan' && !context.wearHistory) {
     try {
@@ -88,17 +102,26 @@ async function handleSend(type = 'qa', extra = {}) {
 
   try {
     if (resolvedType === 'log' || resolvedType === 'log+qa') {
+      // ── Log path ──────────────────────────────────────────────────────────
       msgEl.textContent = 'Logging outfit...';
-      const rawResponse = await askClaude({ type: 'log', userPrompt: displayText, extra: context });
+      const rawResponse = await askClaude({
+        type: 'log',
+        userPrompt: displayText,
+        extra: { ...context, conversationHistory },
+      });
       await handleLogResponse(rawResponse, msgEl);
 
-      // If there's also a question, follow up with a QA response
+      // Add to history so follow-up turns know what was logged
+      conversationHistory.push({ role: 'user',      content: displayText });
+      conversationHistory.push({ role: 'assistant', content: msgEl.textContent });
+
+      // If mixed intent, also answer the question
       if (resolvedType === 'log+qa') {
         const qaMsg = appendMessage('assistant', '', true);
         const fullResponse = await askClaude({
           type: 'qa',
           userPrompt: displayText,
-          extra: context,
+          extra: { ...context, conversationHistory },
           onChunk: (_chunk, full) => {
             updateMessage(qaMsg, full);
             qaMsg.classList.add('streaming');
@@ -106,14 +129,19 @@ async function handleSend(type = 'qa', extra = {}) {
           },
         });
         qaMsg.classList.remove('streaming');
+        conversationHistory.push({ role: 'assistant', content: fullResponse });
         maybeUpdateMemory(displayText, fullResponse, 'qa');
       }
 
     } else {
+      // ── Streaming path: qa / plan / photo / ingest ────────────────────────
+      // Add user turn to history before sending
+      conversationHistory.push({ role: 'user', content: displayText });
+
       const fullResponse = await askClaude({
         type: resolvedType,
         userPrompt: displayText,
-        extra: context,
+        extra: { ...context, conversationHistory: conversationHistory.slice(0, -1) },
         imageBase64,
         onChunk: (_chunk, full) => {
           updateMessage(msgEl, full);
@@ -122,12 +150,25 @@ async function handleSend(type = 'qa', extra = {}) {
         },
       });
       msgEl.classList.remove('streaming');
+
+      // Add assistant turn to history
+      conversationHistory.push({ role: 'assistant', content: fullResponse });
+
+      // Cap history at last 10 turns to control token growth
+      if (conversationHistory.length > 10) {
+        conversationHistory = conversationHistory.slice(-10);
+      }
+
       maybeUpdateMemory(displayText, fullResponse, resolvedType);
     }
 
   } catch (e) {
     msgEl.classList.remove('streaming');
     msgEl.textContent = 'Sorry, something went wrong: ' + e.message;
+    // Remove the failed user turn from history
+    if (conversationHistory[conversationHistory.length - 1]?.role === 'user') {
+      conversationHistory.pop();
+    }
   }
 
   setInputDisabled(false);
@@ -136,44 +177,33 @@ async function handleSend(type = 'qa', extra = {}) {
   scrollToBottom();
 }
 
-// ─── Memory: extract preferences after each response ─────────────────────────
+// ─── Memory ───────────────────────────────────────────────────────────────────
 
-// Phrases that strongly signal a preference worth saving
 const EXPLICIT_MEMORY_PHRASES = [
-  'remember', 'save this', 'note that', 'prefer', 'don\'t like', 'i like',
+  'remember', 'save this', 'note that', 'prefer', "don't like", 'i like',
   'i love', 'i hate', 'always', 'never', 'avoid', 'favourite', 'favorite',
   'usually', 'tend to', 'i find', 'i feel', 'too formal', 'too casual',
-  'works well', 'doesn\'t work', 'great combination', 'not a fan',
+  'works well', "doesn't work", 'great combination', 'not a fan',
   'works best', 'i think', 'in my opinion',
 ];
 
 async function maybeUpdateMemory(userText, assistantResponse, requestType) {
   const lower = userText.toLowerCase();
-
-  // Always run memory extraction after plan and photo responses —
-  // these contain rich implicit preference data worth capturing
-  const alwaysCapture = requestType === 'plan' || requestType === 'photo';
-  const hasExplicitPhrase = EXPLICIT_MEMORY_PHRASES.some(p => lower.includes(p));
-
-  if (!alwaysCapture && !hasExplicitPhrase) return;
+  const alwaysCapture  = requestType === 'plan' || requestType === 'photo';
+  const hasExplicit    = EXPLICIT_MEMORY_PHRASES.some(p => lower.includes(p));
+  if (!alwaysCapture && !hasExplicit) return;
 
   try {
     const currentPrefs = await getPreferences();
     const raw = await askClaude({
       type: 'memory',
       userPrompt: 'Extract preferences',
-      extra: {
-        userMessage: userText,
-        assistantResponse,
-        currentPrefs,
-      },
+      extra: { userMessage: userText, assistantResponse, currentPrefs },
     });
-
-    const clean = raw.replace(/```json|```/g, '').trim();
+    const clean   = raw.replace(/```json|```/g, '').trim();
     const updated = JSON.parse(clean);
     if (updated.type === 'user_preferences') {
       await savePreferences(updated);
-      console.log('Preferences updated');
     }
   } catch (e) {
     console.warn('Memory update skipped:', e.message);
@@ -188,12 +218,12 @@ async function handleLogResponse(rawResponse, msgEl) {
     const clean = rawResponse.replace(/```json|```/g, '').trim();
     parsed = JSON.parse(clean);
   } catch {
-    msgEl.textContent = rawResponse;
+    updateMessage(msgEl, rawResponse);
     return;
   }
 
   if (parsed.action !== 'log_outfits' || !Array.isArray(parsed.entries)) {
-    msgEl.textContent = parsed.message ?? rawResponse;
+    updateMessage(msgEl, parsed.message ?? rawResponse);
     return;
   }
 
@@ -210,7 +240,9 @@ async function handleLogResponse(rawResponse, msgEl) {
     }
     try {
       await logOutfit(itemIds, entry.date);
-      const names = itemIds.map(id => allItems.find(i => i.id === id)?.name).filter(Boolean).join(', ');
+      const names = itemIds
+        .map(id => allItems.find(i => i.id === id)?.name)
+        .filter(Boolean).join(', ');
       results.push(entry.date + ': ' + names);
     } catch (e) {
       results.push(entry.date + ': failed — ' + e.message);
@@ -226,7 +258,62 @@ async function handleLogResponse(rawResponse, msgEl) {
   } catch { /* calendar not open yet */ }
 }
 
-// ─── Helpers ──────────────────────────────────────────────────────────────────
+// ─── Markdown renderer ────────────────────────────────────────────────────────
+
+function renderMarkdown(text) {
+  // Strip item ID codes like (`a69978fd`)
+  text = text.replace(/\s*\(`[a-f0-9]{8}`\)/g, '');
+
+  const esc = s => s
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+
+  const lines = text.split('\n');
+  const out   = [];
+  let inList   = false;
+
+  for (const line of lines) {
+    if (/^---+$/.test(line.trim())) {
+      if (inList) { out.push('</ul>'); inList = false; }
+      out.push('<hr style="border:none;border-top:0.5px solid var(--border);margin:10px 0;">');
+      continue;
+    }
+    if (/^##\s/.test(line)) {
+      if (inList) { out.push('</ul>'); inList = false; }
+      out.push(`<div style="font-size:13px;font-weight:500;margin:12px 0 4px;">${inlineFormat(esc(line.replace(/^##\s+/, '')))}</div>`);
+      continue;
+    }
+    if (/^###\s/.test(line)) {
+      if (inList) { out.push('</ul>'); inList = false; }
+      out.push(`<div style="font-size:12px;font-weight:500;color:var(--muted);margin:10px 0 3px;">${inlineFormat(esc(line.replace(/^###\s+/, '')))}</div>`);
+      continue;
+    }
+    if (/^[\-\*]\s/.test(line)) {
+      if (!inList) { out.push('<ul style="margin:4px 0;padding-left:16px;list-style:none;">'); inList = true; }
+      out.push(`<li style="margin:3px 0;line-height:1.5;">${inlineFormat(esc(line.replace(/^[\-\*]\s+/, '')))}</li>`);
+      continue;
+    }
+    if (inList && line.trim() !== '') { out.push('</ul>'); inList = false; }
+    if (line.trim() === '') {
+      if (!inList) out.push('<div style="height:6px;"></div>');
+      continue;
+    }
+    out.push(`<div style="line-height:1.55;margin:2px 0;">${inlineFormat(esc(line))}</div>`);
+  }
+
+  if (inList) out.push('</ul>');
+  return out.join('');
+}
+
+function inlineFormat(text) {
+  return text
+    .replace(/\*\*(.+?)\*\*/g, '<strong style="font-weight:500;">$1</strong>')
+    .replace(/\*(.+?)\*/g,     '<em>$1</em>')
+    .replace(/`([^`]+)`/g,     '<code style="font-size:12px;background:var(--bg);padding:1px 5px;border-radius:4px;font-family:monospace;">$1</code>');
+}
+
+// ─── DOM helpers ──────────────────────────────────────────────────────────────
 
 function appendUserMessage(text, imageBase64) {
   const el = document.createElement('div');
@@ -245,94 +332,15 @@ function appendUserMessage(text, imageBase64) {
 function appendMessage(role, text, streaming = false) {
   const el = document.createElement('div');
   el.className = 'chat-msg ' + role + (streaming ? ' streaming' : '');
-  if (text) {
-    el.innerHTML = renderMarkdown(text);
-  }
+  if (text) el.innerHTML = renderMarkdown(text);
   messagesEl.appendChild(el);
   scrollToBottom();
   return el;
 }
 
-// Called during streaming to update content
 function updateMessage(el, text) {
   el.innerHTML = renderMarkdown(text);
   scrollToBottom();
-}
-
-// Lightweight markdown renderer — handles the subset Claude uses
-function renderMarkdown(text) {
-  // Strip item ID codes like (`a69978fd`) — internal references, not for display
-  text = text.replace(/\s*\(`[a-f0-9]{8}`\)/g, '');
-
-  // Escape HTML first to prevent XSS
-  const esc = s => s
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;');
-
-  // Process line by line
-  const lines = text.split('\n');
-  const out   = [];
-  let inList   = false;
-
-  for (let i = 0; i < lines.length; i++) {
-    let line = lines[i];
-
-    // Horizontal rule ---
-    if (/^---+$/.test(line.trim())) {
-      if (inList) { out.push('</ul>'); inList = false; }
-      out.push('<hr style="border:none;border-top:0.5px solid var(--border);margin:10px 0;">');
-      continue;
-    }
-
-    // H2 ##
-    if (/^##\s/.test(line)) {
-      if (inList) { out.push('</ul>'); inList = false; }
-      out.push(`<div style="font-size:13px;font-weight:500;margin:12px 0 4px;">${inlineFormat(esc(line.replace(/^##\s+/, '')))}</div>`);
-      continue;
-    }
-
-    // H3 ###
-    if (/^###\s/.test(line)) {
-      if (inList) { out.push('</ul>'); inList = false; }
-      out.push(`<div style="font-size:12px;font-weight:500;color:var(--muted);margin:10px 0 3px;">${inlineFormat(esc(line.replace(/^###\s+/, '')))}</div>`);
-      continue;
-    }
-
-    // List item - or *
-    if (/^[\-\*]\s/.test(line)) {
-      if (!inList) { out.push('<ul style="margin:4px 0;padding-left:16px;list-style:none;">'); inList = true; }
-      const content = inlineFormat(esc(line.replace(/^[\-\*]\s+/, '')));
-      out.push(`<li style="margin:3px 0;line-height:1.5;">${content}</li>`);
-      continue;
-    }
-
-    // Close list before a non-list line
-    if (inList && line.trim() !== '') {
-      out.push('</ul>');
-      inList = false;
-    }
-
-    // Empty line = spacing
-    if (line.trim() === '') {
-      if (!inList) out.push('<div style="height:6px;"></div>');
-      continue;
-    }
-
-    // Normal paragraph
-    out.push(`<div style="line-height:1.55;margin:2px 0;">${inlineFormat(esc(line))}</div>`);
-  }
-
-  if (inList) out.push('</ul>');
-  return out.join('');
-}
-
-// Inline formatting: **bold**, *italic*, `code`
-function inlineFormat(text) {
-  return text
-    .replace(/\*\*(.+?)\*\*/g, '<strong style="font-weight:500;">$1</strong>')
-    .replace(/\*(.+?)\*/g,     '<em>$1</em>')
-    .replace(/`([^`]+)`/g,     '<code style="font-size:12px;background:var(--bg);padding:1px 5px;border-radius:4px;font-family:var(--font-mono,monospace);">$1</code>');
 }
 
 function clearPhoto() {
@@ -341,8 +349,57 @@ function clearPhoto() {
   inputEl.placeholder = 'Ask about your wardrobe…';
 }
 
+function scrollToBottom() { messagesEl.scrollTop = messagesEl.scrollHeight; }
+
+function setInputDisabled(disabled) {
+  inputEl.disabled    = disabled;
+  sendBtn.disabled    = disabled;
+  photoBtn.disabled   = disabled;
+  sendBtn.textContent = disabled ? 'Sending...' : 'Send';
+}
+
+// ─── Type detection ───────────────────────────────────────────────────────────
+
+function detectType(text) {
+  const lower = text.toLowerCase();
+  const logKeywords  = ['wore', 'had on', 'log this', 'record this',
+                        'put on', 'dressed in', 'i was in'];
+  const planKeywords = ['plan', 'next week', 'forecast', 'weather',
+                        'schedule', 'coming week', 'this week', 'calendar'];
+  const qaKeywords   = ['should i', 'would', 'does this', 'what goes',
+                        'advice', 'suggest', 'recommend', 'tuck', 'match',
+                        'work with', 'pair', 'wear with', 'look good',
+                        'think about', 'opinion', '?'];
+
+  const isLog  = logKeywords.some(kw  => lower.includes(kw));
+  const isPlan = planKeywords.some(kw => lower.includes(kw));
+  const isQA   = qaKeywords.some(kw   => lower.includes(kw));
+  const mentionsNow = lower.includes('today') || lower.includes('wearing') ||
+                      lower.includes('i have on') || lower.includes("i'm in");
+
+  if (isPlan) return 'plan';
+  if (isLog)  return 'log';
+  if (mentionsNow && isQA) return 'log+qa';
+  if (mentionsNow) return 'log';
+  return 'qa';
+}
+
+// ─── Item matcher ─────────────────────────────────────────────────────────────
+
+function findItem(items, name) {
+  const n = name.toLowerCase().trim();
+  return items.find(i => i.name.toLowerCase() === n)
+      ?? items.find(i => i.name.toLowerCase().includes(n) || n.includes(i.name.toLowerCase()))
+      ?? items.find(i => {
+           const iw = i.name.toLowerCase().split(/\s+/);
+           return name.split(/\s+/).filter(w => w.length > 2 && iw.includes(w.toLowerCase())).length >= 2;
+         })
+      ?? null;
+}
+
+// ─── Utilities ────────────────────────────────────────────────────────────────
+
 async function fileToBase64(file) {
-  // Resize + compress before sending to keep token count low
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.onload = e => {
@@ -363,53 +420,6 @@ async function fileToBase64(file) {
     reader.onerror = reject;
     reader.readAsDataURL(file);
   });
-}
-
-function findItem(items, name) {
-  const n = name.toLowerCase().trim();
-  return items.find(i => i.name.toLowerCase() === n)
-      ?? items.find(i => i.name.toLowerCase().includes(n) || n.includes(i.name.toLowerCase()))
-      ?? items.find(i => {
-           const iw = i.name.toLowerCase().split(/\s+/);
-           return name.split(/\s+/).filter(w => w.length > 2 && iw.includes(w.toLowerCase())).length >= 2;
-         })
-      ?? null;
-}
-
-function detectType(text) {
-  const lower = text.toLowerCase();
-
-  const logKeywords  = ['wore', 'had on', 'log this', 'record this',
-                        'put on', 'dressed in', 'i was in'];
-  const planKeywords = ['plan', 'next week', 'forecast', 'weather',
-                        'schedule', 'coming week', 'this week', 'calendar'];
-  const qaKeywords   = ['should i', 'would', 'does this', 'what goes',
-                        'advice', 'suggest', 'recommend', 'tuck', 'match',
-                        'work with', 'pair', 'wear with', 'look good',
-                        'think about', 'opinion', '?'];
-
-  const isLog  = logKeywords.some(kw  => lower.includes(kw));
-  const isPlan = planKeywords.some(kw => lower.includes(kw));
-  const isQA   = qaKeywords.some(kw   => lower.includes(kw));
-
-  // "today" or "wearing" + a question = log the outfit AND answer the question
-  const mentionsNow = lower.includes('today') || lower.includes('wearing') ||
-                      lower.includes('i have on') || lower.includes("i'm in");
-
-  if (isPlan) return 'plan';
-  if (isLog)  return 'log';
-  if (mentionsNow && isQA) return 'log+qa';
-  if (mentionsNow) return 'log';
-  return 'qa';
-}
-
-function scrollToBottom() { messagesEl.scrollTop = messagesEl.scrollHeight; }
-
-function setInputDisabled(disabled) {
-  inputEl.disabled    = disabled;
-  sendBtn.disabled    = disabled;
-  photoBtn.disabled   = disabled;
-  sendBtn.textContent = disabled ? 'Sending...' : 'Send';
 }
 
 function buildWearHistory(rawLog) {
