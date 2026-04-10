@@ -100,7 +100,7 @@ async function handleSend(type = 'qa', extra = {}) {
           userPrompt: displayText,
           extra: context,
           onChunk: (_chunk, full) => {
-            qaMsg.textContent = full;
+            updateMessage(qaMsg, full);
             qaMsg.classList.add('streaming');
             scrollToBottom();
           },
@@ -116,7 +116,7 @@ async function handleSend(type = 'qa', extra = {}) {
         extra: context,
         imageBase64,
         onChunk: (_chunk, full) => {
-          msgEl.textContent = full;
+          updateMessage(msgEl, full);
           msgEl.classList.add('streaming');
           scrollToBottom();
         },
@@ -218,7 +218,7 @@ async function handleLogResponse(rawResponse, msgEl) {
   }
 
   const summary = results.length ? '\n\nLogged:\n' + results.join('\n') : '';
-  msgEl.textContent = (parsed.message ?? 'Done.') + summary;
+  updateMessage(msgEl, (parsed.message ?? 'Done.') + summary);
 
   try {
     const { reloadCalendar } = await import('./calendar.js');
@@ -245,10 +245,94 @@ function appendUserMessage(text, imageBase64) {
 function appendMessage(role, text, streaming = false) {
   const el = document.createElement('div');
   el.className = 'chat-msg ' + role + (streaming ? ' streaming' : '');
-  el.textContent = text;
+  if (text) {
+    el.innerHTML = renderMarkdown(text);
+  }
   messagesEl.appendChild(el);
   scrollToBottom();
   return el;
+}
+
+// Called during streaming to update content
+function updateMessage(el, text) {
+  el.innerHTML = renderMarkdown(text);
+  scrollToBottom();
+}
+
+// Lightweight markdown renderer — handles the subset Claude uses
+function renderMarkdown(text) {
+  // Strip item ID codes like (`a69978fd`) — internal references, not for display
+  text = text.replace(/\s*\(`[a-f0-9]{8}`\)/g, '');
+
+  // Escape HTML first to prevent XSS
+  const esc = s => s
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+
+  // Process line by line
+  const lines = text.split('\n');
+  const out   = [];
+  let inList   = false;
+
+  for (let i = 0; i < lines.length; i++) {
+    let line = lines[i];
+
+    // Horizontal rule ---
+    if (/^---+$/.test(line.trim())) {
+      if (inList) { out.push('</ul>'); inList = false; }
+      out.push('<hr style="border:none;border-top:0.5px solid var(--border);margin:10px 0;">');
+      continue;
+    }
+
+    // H2 ##
+    if (/^##\s/.test(line)) {
+      if (inList) { out.push('</ul>'); inList = false; }
+      out.push(`<div style="font-size:13px;font-weight:500;margin:12px 0 4px;">${inlineFormat(esc(line.replace(/^##\s+/, '')))}</div>`);
+      continue;
+    }
+
+    // H3 ###
+    if (/^###\s/.test(line)) {
+      if (inList) { out.push('</ul>'); inList = false; }
+      out.push(`<div style="font-size:12px;font-weight:500;color:var(--muted);margin:10px 0 3px;">${inlineFormat(esc(line.replace(/^###\s+/, '')))}</div>`);
+      continue;
+    }
+
+    // List item - or *
+    if (/^[\-\*]\s/.test(line)) {
+      if (!inList) { out.push('<ul style="margin:4px 0;padding-left:16px;list-style:none;">'); inList = true; }
+      const content = inlineFormat(esc(line.replace(/^[\-\*]\s+/, '')));
+      out.push(`<li style="margin:3px 0;line-height:1.5;">${content}</li>`);
+      continue;
+    }
+
+    // Close list before a non-list line
+    if (inList && line.trim() !== '') {
+      out.push('</ul>');
+      inList = false;
+    }
+
+    // Empty line = spacing
+    if (line.trim() === '') {
+      if (!inList) out.push('<div style="height:6px;"></div>');
+      continue;
+    }
+
+    // Normal paragraph
+    out.push(`<div style="line-height:1.55;margin:2px 0;">${inlineFormat(esc(line))}</div>`);
+  }
+
+  if (inList) out.push('</ul>');
+  return out.join('');
+}
+
+// Inline formatting: **bold**, *italic*, `code`
+function inlineFormat(text) {
+  return text
+    .replace(/\*\*(.+?)\*\*/g, '<strong style="font-weight:500;">$1</strong>')
+    .replace(/\*(.+?)\*/g,     '<em>$1</em>')
+    .replace(/`([^`]+)`/g,     '<code style="font-size:12px;background:var(--bg);padding:1px 5px;border-radius:4px;font-family:var(--font-mono,monospace);">$1</code>');
 }
 
 function clearPhoto() {
