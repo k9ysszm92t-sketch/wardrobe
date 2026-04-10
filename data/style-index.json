@@ -921,28 +921,9 @@
     "last_worn": null
   },
   {
-    "id": "3012bf76-aec3-41b0-95bc-af27ded50f59",
-    "brand": "Lululemon",
-    "name": "Textured Spacer Anorak",
-    "category": "Outerwear",
-    "type": "Anorak",
-    "color": "Black",
-    "seasons": [
-      "Fall",
-      "Spring"
-    ],
-    "occasions": [
-      "Casual",
-      "Smart-Casual"
-    ],
-    "layerOnly": null,
-    "cvd": false,
-    "last_worn": null
-  },
-  {
     "id": "826f6673-db88-4735-9e8b-7633b0c07222",
     "brand": "Lululemon",
-    "name": "Airing Easy SS",
+    "name": "Airing Easy Short-Sleeve Shirt",
     "category": "Performance Tees",
     "type": "Performance Tee",
     "color": "True Navy",
@@ -952,6 +933,7 @@
     ],
     "occasions": [
       "Active",
+      "Work",
       "Casual"
     ],
     "layerOnly": null,
@@ -961,7 +943,7 @@
   {
     "id": "5cf66ada-d057-4cf8-91b4-932891f5e0f7",
     "brand": "Lululemon",
-    "name": "Airing Easy SS",
+    "name": "Airing Easy Short-Sleeve Shirt",
     "category": "Performance Tees",
     "type": "Performance Tee",
     "color": "Black",
@@ -971,7 +953,8 @@
     ],
     "occasions": [
       "Active",
-      "Casual"
+      "Casual",
+      "Work"
     ],
     "layerOnly": null,
     "cvd": false,
@@ -980,7 +963,7 @@
   {
     "id": "f04475e4-cc69-4a69-99bf-c814115fc6df",
     "brand": "Lululemon",
-    "name": "Airing Easy SS",
+    "name": "Airing Easy Short-Sleeve Shirt",
     "category": "Performance Tees",
     "type": "Performance Tee",
     "color": "Heathered Navy",
@@ -990,7 +973,8 @@
     ],
     "occasions": [
       "Active",
-      "Casual"
+      "Casual",
+      "Work"
     ],
     "layerOnly": null,
     "cvd": false,
@@ -1035,26 +1019,6 @@
     "last_worn": null
   },
   {
-    "id": "65dc4759-a6fc-4ae7-934f-2bfd7e883c9e",
-    "brand": "Inesis (Decathlon)",
-    "name": "MW500 Polo",
-    "category": "Polos",
-    "type": "Polo",
-    "color": "Grey",
-    "seasons": [
-      "Spring",
-      "Summer",
-      "Fall"
-    ],
-    "occasions": [
-      "Casual",
-      "Smart-Casual"
-    ],
-    "layerOnly": null,
-    "cvd": false,
-    "last_worn": null
-  },
-  {
     "id": "694e8a90-dfeb-478f-aca1-4430c3a647cc",
     "brand": "Inesis (Decathlon)",
     "name": "MW500 Polo",
@@ -1081,6 +1045,26 @@
     "category": "Polos",
     "type": "Polo",
     "color": "Black",
+    "seasons": [
+      "Spring",
+      "Summer",
+      "Fall"
+    ],
+    "occasions": [
+      "Casual",
+      "Smart-Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "65dc4759-a6fc-4ae7-934f-2bfd7e883c9e",
+    "brand": "Inesis (Decathlon)",
+    "name": "MW500 Polo",
+    "category": "Polos",
+    "type": "Polo",
+    "color": "Grey",
     "seasons": [
       "Spring",
       "Summer",
@@ -1192,26 +1176,6 @@
     "last_worn": null
   },
   {
-    "id": "a69978fd-8484-4b4c-8cb9-f046d210c9a6",
-    "brand": "Lululemon",
-    "name": "Commission LS Button-Down (Pocket)",
-    "category": "Shirts",
-    "type": "Button-Down",
-    "color": "Dove Grey",
-    "seasons": [
-      "Spring",
-      "Summer",
-      "Fall"
-    ],
-    "occasions": [
-      "Smart-Casual",
-      "Work"
-    ],
-    "layerOnly": null,
-    "cvd": false,
-    "last_worn": null
-  },
-  {
     "id": "b3281e9a-6c7b-41d2-a0fc-68f02fca6810",
     "brand": "Lululemon",
     "name": "Commission LS Button-Down (Pocket)",
@@ -1225,6 +1189,26 @@
     "occasions": [
       "Smart-Casual",
       "Casual",
+      "Work"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "a69978fd-8484-4b4c-8cb9-f046d210c9a6",
+    "brand": "Lululemon",
+    "name": "Commission LS Button-Down (Pocket)",
+    "category": "Shirts",
+    "type": "Button-Down",
+    "color": "Dove Grey",
+    "seasons": [
+      "Spring",
+      "Summer",
+      "Fall"
+    ],
+    "occasions": [
+      "Smart-Casual",
       "Work"
     ],
     "layerOnly": null,
@@ -1344,23 +1328,6 @@
     "last_worn": null
   },
   {
-    "id": "3ff11b1d-400d-468a-8b77-630c976dd61a",
-    "brand": "Lululemon",
-    "name": "Pool Short 7\"",
-    "category": "Shorts",
-    "type": "Swim Shorts",
-    "color": "Black",
-    "seasons": [
-      "Summer"
-    ],
-    "occasions": [
-      "Active"
-    ],
-    "layerOnly": null,
-    "cvd": false,
-    "last_worn": null
-  },
-  {
     "id": "73784f37-f437-4f32-a55a-203c802b9885",
     "brand": "Lululemon",
     "name": "Pool Short 7\"",
@@ -1375,6 +1342,23 @@
     ],
     "layerOnly": null,
     "cvd": true,
+    "last_worn": null
+  },
+  {
+    "id": "3ff11b1d-400d-468a-8b77-630c976dd61a",
+    "brand": "Lululemon",
+    "name": "Pool Short 7\"",
+    "category": "Shorts",
+    "type": "Swim Shorts",
+    "color": "Black",
+    "seasons": [
+      "Summer"
+    ],
+    "occasions": [
+      "Active"
+    ],
+    "layerOnly": null,
+    "cvd": false,
     "last_worn": null
   },
   {
@@ -1614,12 +1598,12 @@
     "last_worn": null
   },
   {
-    "id": "1450a976-b732-455e-bfd1-a4b6107edb04",
+    "id": "57719f08-cb63-4519-94f1-6327fa218f4c",
     "brand": "Lululemon",
     "name": "Textured Knit Crewneck",
     "category": "Sweaters & Layers",
     "type": "Crewneck",
-    "color": "Heathered Black",
+    "color": "Heathered Blackened Pine",
     "seasons": [
       "Fall",
       "Winter",
@@ -1630,7 +1614,7 @@
       "Casual"
     ],
     "layerOnly": null,
-    "cvd": false,
+    "cvd": true,
     "last_worn": null
   },
   {
@@ -1654,12 +1638,12 @@
     "last_worn": null
   },
   {
-    "id": "57719f08-cb63-4519-94f1-6327fa218f4c",
+    "id": "1450a976-b732-455e-bfd1-a4b6107edb04",
     "brand": "Lululemon",
     "name": "Textured Knit Crewneck",
     "category": "Sweaters & Layers",
     "type": "Crewneck",
-    "color": "Heathered Blackened Pine",
+    "color": "Heathered Black",
     "seasons": [
       "Fall",
       "Winter",
@@ -1670,7 +1654,26 @@
       "Casual"
     ],
     "layerOnly": null,
-    "cvd": true,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "3012bf76-aec3-41b0-95bc-af27ded50f59",
+    "brand": "Lululemon",
+    "name": "Textured Spacer Anorak",
+    "category": "Sweaters & Layers",
+    "type": "Anorak",
+    "color": "Black",
+    "seasons": [
+      "Fall",
+      "Spring"
+    ],
+    "occasions": [
+      "Casual",
+      "Smart-Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
     "last_worn": null
   },
   {
@@ -1712,25 +1715,6 @@
     "last_worn": null
   },
   {
-    "id": "4586a513-c514-43d4-9460-48a141070a78",
-    "brand": "Lululemon",
-    "name": "ABC Classic-Fit Trouser (VersaTwill)",
-    "category": "Trousers",
-    "type": "Trouser",
-    "color": "Black",
-    "seasons": [
-      "All"
-    ],
-    "occasions": [
-      "Smart-Casual",
-      "Work",
-      "Formal"
-    ],
-    "layerOnly": null,
-    "cvd": false,
-    "last_worn": null
-  },
-  {
     "id": "7ac20d2b-5304-46bc-8ed3-b47ea524c97c",
     "brand": "Lululemon",
     "name": "ABC Classic-Fit Trouser (VersaTwill)",
@@ -1745,6 +1729,25 @@
     "occasions": [
       "Smart-Casual",
       "Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null
+  },
+  {
+    "id": "4586a513-c514-43d4-9460-48a141070a78",
+    "brand": "Lululemon",
+    "name": "ABC Classic-Fit Trouser (VersaTwill)",
+    "category": "Trousers",
+    "type": "Trouser",
+    "color": "Black",
+    "seasons": [
+      "All"
+    ],
+    "occasions": [
+      "Smart-Casual",
+      "Work",
+      "Formal"
     ],
     "layerOnly": null,
     "cvd": false,
