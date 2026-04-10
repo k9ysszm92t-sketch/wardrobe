@@ -23,6 +23,7 @@ export default {
     const {
       type, userPrompt, styleIndex, preferences,
       wearHistory, weatherSummary, imageBase64,
+      conversationHistory,
     } = body;
 
     if (!type || !userPrompt) return corsResponse('Missing type or userPrompt', 400);
@@ -32,7 +33,7 @@ export default {
 
     if (type === 'plan') {
       system   = SYSTEM_PLAN;
-      messages = buildPlanMessages(userPrompt, styleIndex ?? [], preferences, wearHistory ?? '', weatherSummary ?? '');
+      messages = buildPlanMessages(userPrompt, styleIndex ?? [], preferences, wearHistory ?? '', weatherSummary ?? '', conversationHistory ?? []);
 
     } else if (type === 'photo') {
       if (!imageBase64) return corsResponse('Missing imageBase64 for photo request', 400);
@@ -41,7 +42,7 @@ export default {
 
     } else if (type === 'log') {
       system   = getSystemLog();
-      messages = buildLogMessages(userPrompt, styleIndex ?? []);
+      messages = buildLogMessages(userPrompt, styleIndex ?? [], conversationHistory ?? []);
       stream   = false;
 
     } else if (type === 'memory') {
@@ -56,7 +57,7 @@ export default {
 
     } else {
       system   = SYSTEM_QA;
-      messages = buildQAMessages(userPrompt, styleIndex ?? [], preferences);
+      messages = buildQAMessages(userPrompt, styleIndex ?? [], preferences, conversationHistory ?? []);
     }
 
     // ── Call Anthropic ────────────────────────────────────────────────────────
