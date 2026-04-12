@@ -362,18 +362,21 @@ function setInputDisabled(disabled) {
 
 function detectType(text) {
   const lower = text.toLowerCase();
-const logKeywords = [
-  'wore', 'had on', 'log this', 'log those', 'log them',
-  'log the', 'record this', 'record those', 'put on',
-  'save those', 'save them', 'save to calendar', 'add to calendar',
-  'dressed in', 'i was in',
-];
-  const planKeywords = ['plan', 'next week', 'forecast', 'weather',
-                        'schedule', 'coming week', 'this week', 'calendar'];
-  const qaKeywords   = ['should i', 'would', 'does this', 'what goes',
-                        'advice', 'suggest', 'recommend', 'tuck', 'match',
-                        'work with', 'pair', 'wear with', 'look good',
-                        'think about', 'opinion', '?'];
+
+  const logKeywords = [
+    'wore', 'had on', 'log this', 'log those', 'log them', 'log the',
+    'record this', 'record those', 'save those', 'save them',
+    'save to calendar', 'add to calendar', 'put on', 'dressed in', 'i was in',
+  ];
+  const planKeywords = [
+    'plan', 'next week', 'forecast', 'weather', 'schedule',
+    'coming week', 'this week', 'calendar',
+  ];
+  const qaKeywords = [
+    'should i', 'would', 'does this', 'what goes', 'advice',
+    'suggest', 'recommend', 'tuck', 'match', 'work with', 'pair',
+    'wear with', 'look good', 'think about', 'opinion', '?',
+  ];
 
   const isLog  = logKeywords.some(kw  => lower.includes(kw));
   const isPlan = planKeywords.some(kw => lower.includes(kw));
@@ -381,10 +384,10 @@ const logKeywords = [
   const mentionsNow = lower.includes('today') || lower.includes('wearing') ||
                       lower.includes('i have on') || lower.includes("i'm in");
 
-  if (isPlan) return 'plan';
-  if (isLog)  return 'log';
+  if (isPlan && !isLog) return 'plan';
+  if (isLog)            return 'log';
   if (mentionsNow && isQA) return 'log+qa';
-  if (mentionsNow) return 'log';
+  if (mentionsNow)      return 'log';
   return 'qa';
 }
 
