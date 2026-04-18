@@ -363,11 +363,16 @@ function setInputDisabled(disabled) {
 function detectType(text) {
   const lower = text.toLowerCase();
 
-  const logKeywords = [
-    'wore', 'had on', 'log this', 'log those', 'log them', 'log the',
-    'record this', 'record those', 'save those', 'save them',
-    'save to calendar', 'add to calendar', 'put on', 'dressed in', 'i was in',
-  ];
+const logKeywords = [
+  'wore', 'had on', 'log this', 'log those', 'log them', 'log the',
+  'log what', 'log my', 'log it', 'log:',
+  'record this', 'record those', 'record what',
+  'save those', 'save them', 'save to calendar',
+  'add to calendar', 'add them', 'add it', 'add to log',
+  'add these', 'add to my log',
+  'put on', 'dressed in', 'i was in',
+  'mark as worn', 'mark it',
+];
   const planKeywords = [
     'plan', 'next week', 'forecast', 'weather', 'schedule',
     'coming week', 'this week', 'calendar',
