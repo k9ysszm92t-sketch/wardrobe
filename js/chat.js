@@ -80,7 +80,8 @@ async function handleSend(type = 'qa', extra = {}) {
 
   appendUserMessage(displayText, pendingImageBase64);
 
-  let resolvedType = type !== 'qa' ? type : detectType(text);
+const lastAssistant = conversationHistory.filter(m => m.role === 'assistant').at(-1)?.content ?? '';
+let resolvedType = type !== 'qa' ? type : detectType(text, lastAssistant);
   if (hasImage) resolvedType = 'photo';
 
   const imageBase64 = pendingImageBase64;
@@ -359,8 +360,20 @@ function setInputDisabled(disabled) {
 }
 
 // ─── Type detection ───────────────────────────────────────────────────────────
+// If the last assistant message asked what was worn, treat a list response as log
+function detectType(text, lastAssistantMsg = '') {
+  const lower = text.toLowerCase();
+  const lastLower = lastAssistantMsg.toLowerCase();
 
-function detectType(text) {
+  // If Claude just asked what they wore, the reply is implicitly a log request
+  const claudeAskedWhatWorn = lastLower.includes('what did you wear') ||
+    lastLower.includes('what are you wearing') ||
+    lastLower.includes('what did you have on') ||
+    lastLower.includes('list the items') ||
+    lastLower.includes("what's the outfit");
+
+  if (claudeAskedWhatWorn) return 'log';
+         
   const lower = text.toLowerCase();
 
 const logKeywords = [
