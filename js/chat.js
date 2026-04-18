@@ -373,8 +373,7 @@ function detectType(text, lastAssistantMsg = '') {
     lastLower.includes("what's the outfit");
 
   if (claudeAskedWhatWorn) return 'log';
-         
-  const lower = text.toLowerCase();
+
 
 const logKeywords = [
   'wore', 'had on', 'log this', 'log those', 'log them', 'log the',
