@@ -411,27 +411,6 @@
     "tonal": "neutral"
   },
   {
-    "id": "f88afd25-5910-4b9c-8f9d-374f17627d40",
-    "brand": "Banana Republic",
-    "name": "Grey Confetti Dot Dress Shirt",
-    "category": "Dress shirt",
-    "type": "Shirt",
-    "color": "White/Grey Confetti Dot",
-    "seasons": [
-      "Spring",
-      "Summer",
-      "Fall"
-    ],
-    "occasions": [
-      "Work",
-      "Formal"
-    ],
-    "layerOnly": false,
-    "cvd": false,
-    "last_worn": null,
-    "tonal": "neutral"
-  },
-  {
     "id": "7279e369-9223-4a98-9231-e0806d5a9308",
     "brand": "Banana Republic",
     "name": "Navy Cross Dot Dress Shirt",
@@ -469,6 +448,27 @@
       "Formal"
     ],
     "layerOnly": null,
+    "cvd": false,
+    "last_worn": null,
+    "tonal": "neutral"
+  },
+  {
+    "id": "f88afd25-5910-4b9c-8f9d-374f17627d40",
+    "brand": "Banana Republic",
+    "name": "White/Navy-Blue Diamond Confetti",
+    "category": "Dress shirt",
+    "type": "Shirt",
+    "color": "White/Navy-Blue Diamond Confetti",
+    "seasons": [
+      "Spring",
+      "Summer",
+      "Fall"
+    ],
+    "occasions": [
+      "Work",
+      "Formal"
+    ],
+    "layerOnly": false,
     "cvd": false,
     "last_worn": null,
     "tonal": "neutral"
@@ -970,27 +970,6 @@
     "tonal": "neutral"
   },
   {
-    "id": "826f6673-db88-4735-9e8b-7633b0c07222",
-    "brand": "Lululemon",
-    "name": "Airing Easy Short-Sleeve Shirt",
-    "category": "Performance Tees",
-    "type": "Performance Tee",
-    "color": "True Navy",
-    "seasons": [
-      "Spring",
-      "Summer"
-    ],
-    "occasions": [
-      "Active",
-      "Work",
-      "Casual"
-    ],
-    "layerOnly": null,
-    "cvd": false,
-    "last_worn": null,
-    "tonal": "cool"
-  },
-  {
     "id": "f04475e4-cc69-4a69-99bf-c814115fc6df",
     "brand": "Lululemon",
     "name": "Airing Easy Short-Sleeve Shirt",
@@ -1031,6 +1010,27 @@
     "cvd": false,
     "last_worn": null,
     "tonal": "neutral"
+  },
+  {
+    "id": "826f6673-db88-4735-9e8b-7633b0c07222",
+    "brand": "Lululemon",
+    "name": "Airing Easy Short-Sleeve Shirt",
+    "category": "Performance Tees",
+    "type": "Performance Tee",
+    "color": "True Navy",
+    "seasons": [
+      "Spring",
+      "Summer"
+    ],
+    "occasions": [
+      "Active",
+      "Work",
+      "Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null,
+    "tonal": "cool"
   },
   {
     "id": "15cc20c6-3726-4cc4-bc60-f24934604a99",
@@ -1094,27 +1094,6 @@
     "tonal": "cool"
   },
   {
-    "id": "22a51df4-200f-4e9d-b3b6-6781cc51aa46",
-    "brand": "Inesis (Decathlon)",
-    "name": "MW500 Polo",
-    "category": "Polos",
-    "type": "Polo",
-    "color": "Black",
-    "seasons": [
-      "Spring",
-      "Summer",
-      "Fall"
-    ],
-    "occasions": [
-      "Casual",
-      "Smart-Casual"
-    ],
-    "layerOnly": null,
-    "cvd": false,
-    "last_worn": null,
-    "tonal": "neutral"
-  },
-  {
     "id": "65dc4759-a6fc-4ae7-934f-2bfd7e883c9e",
     "brand": "Inesis (Decathlon)",
     "name": "MW500 Polo",
@@ -1134,6 +1113,27 @@
     "cvd": false,
     "last_worn": null,
     "tonal": "warm-neutral"
+  },
+  {
+    "id": "22a51df4-200f-4e9d-b3b6-6781cc51aa46",
+    "brand": "Inesis (Decathlon)",
+    "name": "MW500 Polo",
+    "category": "Polos",
+    "type": "Polo",
+    "color": "Black",
+    "seasons": [
+      "Spring",
+      "Summer",
+      "Fall"
+    ],
+    "occasions": [
+      "Casual",
+      "Smart-Casual"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null,
+    "tonal": "neutral"
   },
   {
     "id": "013a2a4d-b99a-4981-9a2d-f560ab8030c1",
@@ -1238,27 +1238,6 @@
     "tonal": "cool"
   },
   {
-    "id": "b3281e9a-6c7b-41d2-a0fc-68f02fca6810",
-    "brand": "Lululemon",
-    "name": "Commission LS Button-Down (Pocket)",
-    "category": "Shirts",
-    "type": "Button-Down",
-    "color": "Blue Linen/White",
-    "seasons": [
-      "Spring",
-      "Summer"
-    ],
-    "occasions": [
-      "Smart-Casual",
-      "Casual",
-      "Work"
-    ],
-    "layerOnly": null,
-    "cvd": false,
-    "last_worn": null,
-    "tonal": null
-  },
-  {
     "id": "a69978fd-8484-4b4c-8cb9-f046d210c9a6",
     "brand": "Lululemon",
     "name": "Commission LS Button-Down (Pocket)",
@@ -1278,6 +1257,27 @@
     "cvd": false,
     "last_worn": null,
     "tonal": "neutral"
+  },
+  {
+    "id": "b3281e9a-6c7b-41d2-a0fc-68f02fca6810",
+    "brand": "Lululemon",
+    "name": "Commission LS Button-Down (Pocket)",
+    "category": "Shirts",
+    "type": "Button-Down",
+    "color": "Blue Linen/White",
+    "seasons": [
+      "Spring",
+      "Summer"
+    ],
+    "occasions": [
+      "Smart-Casual",
+      "Casual",
+      "Work"
+    ],
+    "layerOnly": null,
+    "cvd": false,
+    "last_worn": null,
+    "tonal": null
   },
   {
     "id": "a7d23845-0eed-4100-bf5c-553a386fe426",
@@ -1300,12 +1300,12 @@
     "tonal": "neutral"
   },
   {
-    "id": "811ff94d-c3e0-44a3-915f-9d60b934b527",
+    "id": "61bed2e3-bcb7-46b0-a0e1-4331bf82f866",
     "brand": "Lululemon",
     "name": "Commission Short 9\" (Warpstreme)",
     "category": "Shorts",
     "type": "Shorts",
-    "color": "Trench (tan/khaki)",
+    "color": "Grey Sage",
     "seasons": [
       "Spring",
       "Summer"
@@ -1315,9 +1315,9 @@
       "Smart-Casual"
     ],
     "layerOnly": null,
-    "cvd": false,
+    "cvd": true,
     "last_worn": null,
-    "tonal": null
+    "tonal": "neutral"
   },
   {
     "id": "93bbac6a-9425-4589-88fb-160dc092790a",
@@ -1340,12 +1340,12 @@
     "tonal": "cool"
   },
   {
-    "id": "61bed2e3-bcb7-46b0-a0e1-4331bf82f866",
+    "id": "811ff94d-c3e0-44a3-915f-9d60b934b527",
     "brand": "Lululemon",
     "name": "Commission Short 9\" (Warpstreme)",
     "category": "Shorts",
     "type": "Shorts",
-    "color": "Grey Sage",
+    "color": "Trench (tan/khaki)",
     "seasons": [
       "Spring",
       "Summer"
@@ -1355,9 +1355,9 @@
       "Smart-Casual"
     ],
     "layerOnly": null,
-    "cvd": true,
+    "cvd": false,
     "last_worn": null,
-    "tonal": "neutral"
+    "tonal": null
   },
   {
     "id": "664a2933-ee5b-4c81-9110-a902ac494ec1",
@@ -1398,24 +1398,6 @@
     "tonal": "neutral"
   },
   {
-    "id": "73784f37-f437-4f32-a55a-203c802b9885",
-    "brand": "Lululemon",
-    "name": "Pool Short 7\"",
-    "category": "Shorts",
-    "type": "Swim Shorts",
-    "color": "Red",
-    "seasons": [
-      "Summer"
-    ],
-    "occasions": [
-      "Active"
-    ],
-    "layerOnly": null,
-    "cvd": true,
-    "last_worn": null,
-    "tonal": "warm"
-  },
-  {
     "id": "3ff11b1d-400d-468a-8b77-630c976dd61a",
     "brand": "Lululemon",
     "name": "Pool Short 7\"",
@@ -1432,6 +1414,24 @@
     "cvd": false,
     "last_worn": null,
     "tonal": "neutral"
+  },
+  {
+    "id": "73784f37-f437-4f32-a55a-203c802b9885",
+    "brand": "Lululemon",
+    "name": "Pool Short 7\"",
+    "category": "Shorts",
+    "type": "Swim Shorts",
+    "color": "Red",
+    "seasons": [
+      "Summer"
+    ],
+    "occasions": [
+      "Active"
+    ],
+    "layerOnly": null,
+    "cvd": true,
+    "last_worn": null,
+    "tonal": "warm"
   },
   {
     "id": "a13d6de7-b83d-49dc-9c1f-9dfbb17f7819",
@@ -1856,7 +1856,8 @@
     "seasons": [
       "Spring",
       "Summer",
-      "Fall"
+      "Fall",
+      "Winter"
     ],
     "occasions": [
       "Smart-Casual",
